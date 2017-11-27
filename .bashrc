@@ -19,6 +19,9 @@ PS1="\[\e[1m\]\u@\h:\[\e[38;5;27m\]\W \[\e[0m\]\[\e[38;5;15m\]\$git_branch\[$txt
 
 shopt -s checkwinsize
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Vagrant
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 
