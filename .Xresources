@@ -1,40 +1,26 @@
+! xterm configuration
 xterm*foreground: rgb:00/af/00
 xterm*background: rgb:00/00/00
-!xterm*background: rgb:ec/b3/34
 xterm*utf8Title: true
 xterm*boldMode: on
-!xterm*faceName: mono:normal:size=12:minspace:rgba=rgb
-!xterm*faceName: DejaVu Sans Mono:size=12:minspace:rgba=rgb
 xterm*faceName: DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgb
 xterm*font: 7x13
 xterm*termName: xterm-256color
 
+!urxvt configuration
+urxvt*foreground: rgb:00/af/00
+urxvt*utf8Title: true
+urxvt*boldMode: on
+urxvt*font: xft:DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgba
+urxvt*scrollBar: False
 
-!!!! Gotham Theme !!!!
-!*.foreground:   #98d1ce
-!*.background:   #0a0f14
-!*.cursorColor:  #98d1ce
+! transparency settings
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0000/cc00
 
-!*.color0:       #0a0f14
-!*.color8:       #10151b
+! URLs highlighting
+urxvt.perl-ext: default,matcher
 
-!*.color1:       #c33027
-!*.color9:       #d26939
-
-!*.color2:       #26a98b
-!*.color10:      #081f2d
-
-!*.color3:       #edb54b
-!*.color11:      #245361
-
-!*.color4:       #195465
-!*.color12:      #093748
-
-!*.color5:       #4e5165
-!*.color13:      #888ba5
-
-!*.color6:       #33859d
-!*.color14:      #599caa
-
-!*.color7:       #98d1ce
-!*.color15:      #d3ebe9
+! Open URLs on click
+! urxvt.url-launcher: firefox
+! urxvt.matcher.button: 1

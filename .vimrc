@@ -28,6 +28,9 @@ Plugin 'cespare/vim-toml'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mindriot101/vim-yapf'
 Plugin 'dpelle/vim-Grammalecte' " French grammar check
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'prettier/vim-prettier'
 
 " Themes
 Plugin 'joshdick/onedark.vim'
@@ -115,6 +118,9 @@ autocmd FileType html,css,js,html.twig,php,markdown EmmetInstall
 set pastetoggle=<F2>
 nnoremap <M-t> :NERDTreeToggle<CR>
 
+" JSX
+let g:jsx_ext_required = 0
+
 " spell checking
 let g:grammalecte_cli_py='/home/julien/grammalecte/cli.py'
 
@@ -134,4 +140,9 @@ if has("gui_running")
 else
   " colorscheme flatcolor
   colorscheme onedark
+endif
+
+" urxvt transparency hack
+if $TERM == "rxvt-unicode-256color"
+    hi Normal ctermbg=NONE
 endif
