@@ -31,6 +31,10 @@ Plugin 'dpelle/vim-Grammalecte' " French grammar check
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier'
+Plugin 'vim-scripts/BufOnly.vim'
+
+" Autoreload
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 " Themes
 Plugin 'joshdick/onedark.vim'
@@ -116,7 +120,13 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,js,html.twig,php,markdown EmmetInstall
 
 set pastetoggle=<F2>
-nnoremap <M-t> :NERDTreeToggle<CR>
+nnoremap <silent> <F8> :bn<CR>
+nnoremap <silent> <F7> :bp<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Autoreload
+" set autoread
+au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file/13092#13092
 
 " JSX
 let g:jsx_ext_required = 0
