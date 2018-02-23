@@ -117,7 +117,7 @@ let g:syntastic_rst_checkers = ['sphinx']
 
 " HTML emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,js,html.twig,php,markdown EmmetInstall
+autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
 
 set pastetoggle=<F2>
 nnoremap <silent> <F8> :bn<CR>
