@@ -38,3 +38,9 @@ Have a look [here](https://wiki.archlinux.org/index.php/x_resources).
   The following plugins are used for vim and tmux to get powerline everywhere:
   - vim: [`vim-airline`](https://github.com/vim-airline/vim-airline)
   - tmux: [`tmux-powerline-theme`](https://github.com/jooize/tmux-powerline-theme)
+
+## Result
+
+Here is how it looks with zsh, tmux and vim configured:
+
+![](./urxvt-with-tmux-vim-1100x601.png)
