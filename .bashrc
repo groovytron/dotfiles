@@ -27,3 +27,6 @@ export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Android
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+
+# tmux
+export TMUX_POWERLINE_SYMBOLS="powerline"

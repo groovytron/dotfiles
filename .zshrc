@@ -2,10 +2,14 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-if [[ `uname` == 'Darwin' ]]
-then  
-    export ZSH=$HOME/.oh-my-zsh
-fi
+export ZSH=$HOME/.oh-my-zsh
+
+# tmux
+export TMUX_POWERLINE_SYMBOLS="powerline"
+
+# solarized dircolors
+eval `dircolors ~/dircolors.256dark`
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
