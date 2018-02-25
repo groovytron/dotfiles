@@ -5,7 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 COLORTERM=truecolor
 
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
@@ -30,3 +29,10 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # tmux
 export TMUX_POWERLINE_SYMBOLS="powerline"
+
+# Load banner at terminal start
+BANNER_FILE=$HOME/banner.sh
+
+if [ -f $BANNER_FILE ]; then
+    source $BANNER_FILE
+fi

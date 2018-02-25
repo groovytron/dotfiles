@@ -25,3 +25,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Load banner at terminal start
+BANNER_FILE=$HOME/banner.sh
+
+if [ -f $BANNER_FILE ]; then
+    source $BANNER_FILE
+fi
