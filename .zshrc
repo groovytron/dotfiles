@@ -32,3 +32,7 @@ BANNER_FILE=$HOME/banner.sh
 if [ -f $BANNER_FILE ]; then
     source $BANNER_FILE
 fi
+
+# Fix home and end keybinding issue
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
