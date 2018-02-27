@@ -21,6 +21,12 @@ urxvt*background: rgba:0000/0000/0000/cc00
 ! URLs highlighting
 urxvt.perl-ext: default,matcher
 
+! Home and End keybindings (https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working#Zsh)
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
 ! Open URLs on click
 ! urxvt.url-launcher: firefox
 ! urxvt.matcher.button: 1
