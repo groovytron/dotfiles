@@ -21,14 +21,15 @@ shopt -s checkwinsize
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Vagrant
-export VAGRANT_DEFAULT_PROVIDER=libvirt
-
-# Android
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-
 # tmux
 export TMUX_POWERLINE_SYMBOLS="powerline"
+
+# Load environment variables (Vagrant, Android & Cie)
+VARS_FILE=$HOME/shared-vars.sh
+
+if [ -f $VARS_FILE ]; then
+    source $VARS_FIlE
+fi
 
 # Load banner at terminal start
 BANNER_FILE=$HOME/banner.sh

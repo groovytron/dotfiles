@@ -4,7 +4,9 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# Android Studio config
-export ANDROID_HOME=${HOME}/Android/Sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+# Load environment variables (Vagrant, Android & Cie)
+VARS_FILE=$HOME/shared-vars.sh
+
+if [ -f $VARS_FILE ]; then
+    source $VARS_FIlE
+fi
