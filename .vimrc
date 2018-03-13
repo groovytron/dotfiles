@@ -119,10 +119,14 @@ let g:syntastic_rst_checkers = ['sphinx']
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
 
+" Keybindings
 set pastetoggle=<F2>
 nnoremap <silent> <F8> :bn<CR>
 nnoremap <silent> <F7> :bp<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Basic commands customization
+set splitbelow
 
 " Autoreload
 " set autoread
