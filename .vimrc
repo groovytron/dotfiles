@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'vim-airline/vim-airline' " Airline
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
 Plugin 'joshdick/onedark.vim' " Themes
-Plugin 'tpope/vim-fugitive' " Vim integration
+Plugin 'tpope/vim-fugitive' " Git status integration
 Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
 Plugin 'scrooloose/syntastic' " Syntax checking
 Plugin 'mattn/emmet-vim' " HTML snippets
