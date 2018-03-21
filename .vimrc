@@ -39,14 +39,20 @@ nnoremap <silent> <F7> :bp<CR>
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+" Ctags
+:command MakeTags !ctags -R .
+
+:command BufOnly %bd|e#<CR>
+
 " emmet-vim (HTML snippets)
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
 
 " Code formatters
 autocmd Filetype python set equalprg=yapf
-autocmd Filetype javascript set equalprg=prettier
+autocmd Filetype javascript,css set equalprg=prettier
 autocmd Filetype markdown set equalprg=tidy-markdown
+autocmd Filetype c,cpp set equalprg=clang-format\ --style=Google
 
 " Syntax checking
 set statusline+=%#warningmsg#
