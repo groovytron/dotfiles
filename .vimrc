@@ -1,87 +1,70 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible " use vim and do not behave like vi
+filetype off " Deactivate filetype plugin temporarily
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+" Plugins
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
+Plugin 'vim-airline/vim-airline' " Airline
+Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
+Plugin 'joshdick/onedark.vim' " Themes
+Plugin 'tpope/vim-fugitive' " Vim integration
+Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
+Plugin 'scrooloose/syntastic' " Syntax checking
+Plugin 'mattn/emmet-vim' " HTML snippets
+call vundle#end()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'scrooloose/nerdtree'
-" Plugin 'altercation/vim-colors-solarized'
-Plugin 'honza/vim-snippets'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'mattn/emmet-vim'
-" Plugin 'beyondmarc/glsl.vim'
-" Plugin 'leafgarland/typescript-vim'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'Quramy/tsuquyomi'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'lumiliet/vim-twig'
-Plugin 'cespare/vim-toml'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mindriot101/vim-yapf'
-Plugin 'dpelle/vim-Grammalecte' " French grammar check
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'prettier/vim-prettier'
-Plugin 'vim-scripts/BufOnly.vim'
-
-" Autoreload
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-
-" Themes
-Plugin 'joshdick/onedark.vim'
-Plugin 'whatyouhide/vim-gotham'
-Plugin 'MaxSt/FlatColor'
-Plugin 'altercation/vim-colors-solarized'
-" Plugin 'alessandroyorba/monrovia'
-" Plugin 'morhetz/gruvbox'
-" Plugin 'alessandroyorba/sidonia'
-
-" Personnal markdown plugin
-Plugin 'groovytron/vim-tidymarkdown'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-syntax on
-filetype plugin indent on
+filetype plugin indent on " Enable filetype plugin again
+syntax on " Enable syntax highlighting
 set laststatus=2 " Always show the statusline
 set encoding=utf-8
-set number
-set ts=4 sts=4 sw=4 expandtab
+set number " Display line number
+set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
+" tab = 2 spaces for web programming languages, JSON, YAML and Markdown
 autocmd Filetype javascript,json,html,twig,ruby,yaml,markdown,css set ts=2 sts=2 sw=2 expandtab
-"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
-set list
-set mouse=a
+set list " Display white space characters
+set mouse=a " Enable mouse use (yeah it's bad)
+set cursorline " Higlight cursor's current line
+set splitbelow
+set pastetoggle=<F2>
+colorscheme onedark
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" Buffer navigation
+nnoremap <silent> <F8> :bn<CR>
+nnoremap <silent> <F7> :bp<CR>
 
-let g:neocomplete#enable_at_startup = 1
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" emmet-vim (HTML snippets)
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
+
+" Code formatters
+autocmd Filetype python set equalprg=yapf
+autocmd Filetype javascript set equalprg=prettier
+autocmd Filetype markdown set equalprg=tidy-markdown
+
+" Syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_rst_checkers = ['sphinx']
+
+" File search
+set path+=**
+set wildmenu
+
+" Autoreload
+" set autoread
+au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file/13092#13092
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -95,48 +78,9 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Sets the airline theme
-let g:airline_theme='onedark'
-
-
-" Syntax checking
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_rst_checkers = ['sphinx']
-
-" HTML emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
-
-" Keybindings
-set pastetoggle=<F2>
-nnoremap <silent> <F8> :bn<CR>
-nnoremap <silent> <F7> :bp<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
-
-" Basic commands customization
-set splitbelow
-
-" Autoreload
-" set autoread
-au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file/13092#13092
-
-" JSX
-let g:jsx_ext_required = 0
-
-" spell checking
-let g:grammalecte_cli_py='/home/julien/grammalecte/cli.py'
+let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
+let g:airline_theme='onedark' " Sets the airline theme
 
 if has("gui_running")
   if has("gui_gtk2") || has("gui_gtk3")
@@ -150,10 +94,6 @@ if has("gui_running")
   else
     set guifont=Courier_New:h11:cDEFAULT
   endif
-  colorscheme onedark
-else
-  " colorscheme flatcolor
-  colorscheme onedark
 endif
 
 " urxvt transparency hack
