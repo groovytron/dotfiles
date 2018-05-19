@@ -6,35 +6,27 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-COLORTERM=truecolor
+# Git aware prompt (https://github.com/jimeh/git-aware-prompt)
+export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
+GITAWARE_MAIN="$GITAWAREPROMPT/main.sh"
 
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "$GITAWAREPROMPT/main.sh"
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+[[ -f "$GITAWARE_MAIN" ]] && source "$GITAWARE_MAIN" || echo "Gitaware prompt not installed :-("
 
-export LS_OPTIONS='--color=auto'
-alias ls='ls $LS_OPTIONS'
 
 PS1="\\[\\e[1m\\]\\u@\\h:\\[\\e[38;5;27m\\]\\W \\[\\e[0m\\]\\[\\e[38;5;15m\\]\$git_branch\\[$txtred\\]\$git_dirty\\[$txtrst\\]\$ "
 
-shopt -s checkwinsize
+# ls result color customization
+export LS_OPTIONS='--color=auto'
+alias ls='ls $LS_OPTIONS'
+eval "$(dircolors ~/dircolors.256dark)"
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
+shopt -s checkwinsize # Fix bash resize issue
 
-# tmux
-export TMUX_POWERLINE_SYMBOLS="powerline"
+# Import functions
+FUNK=$HOME/groovy_functions.sh
 
-# Load environment variables (Vagrant, Android & Cie)
-VARS_FILE=$HOME/shared-vars.sh
+[[ -f "$FUNK" ]] && source "$FUNK" || echo "Could not find functions file :-("
 
-if [ -f "$VARS_FILE" ]; then
-    source "$VARS_FILE"
-fi
+load_groovy_variables
 
-# Load banner at terminal start
-BANNER_FILE=$HOME/banner.sh
-
-if [ -f "$BANNER_FILE" ]; then
-    source "$BANNER_FILE"
-fi
+show_groovy_banner

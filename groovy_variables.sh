@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Text editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# tmux
+export TMUX_POWERLINE_SYMBOLS="powerline"
+
+# Composer
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
 # Vagrant
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 

@@ -4,9 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# tmux
-export TMUX_POWERLINE_SYMBOLS="powerline"
-
 # solarized dircolors
 eval "$(dircolors ~/dircolors.256dark)"
 
@@ -26,19 +23,14 @@ plugins=(
 
 source "$ZSH/oh-my-zsh.sh"
 
-# Load environment variables (Vagrant, Android & Cie)
-VARS_FILE=$HOME/shared-vars.sh
+# Import functions
+FUNK=$HOME/groovy_functions.sh
 
-if [ -f "$VARS_FILE" ]; then
-    source "$VARS_FILE"
-fi
+[[ -f "$FUNK" ]] && source "$FUNK" || echo "Could not find functions file :-("
 
-# Load banner at terminal start
-BANNER_FILE=$HOME/banner.sh
+load_groovy_variables
 
-if [ -f "$BANNER_FILE" ]; then
-    source "$BANNER_FILE"
-fi
+show_groovy_banner
 
 # Fix home and end keybinding issue
 # bindkey "${terminfo[khome]}" beginning-of-line
