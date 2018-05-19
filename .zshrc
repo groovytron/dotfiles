@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 export TMUX_POWERLINE_SYMBOLS="powerline"
 
 # solarized dircolors
-eval `dircolors ~/dircolors.256dark`
+eval "$(dircolors ~/dircolors.256dark)"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -24,22 +24,22 @@ plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # Load environment variables (Vagrant, Android & Cie)
 VARS_FILE=$HOME/shared-vars.sh
 
-if [ -f $VARS_FILE ]; then
-    source $VARS_FILE
+if [ -f "$VARS_FILE" ]; then
+    source "$VARS_FILE"
 fi
 
 # Load banner at terminal start
 BANNER_FILE=$HOME/banner.sh
 
-if [ -f $BANNER_FILE ]; then
-    source $BANNER_FILE
+if [ -f "$BANNER_FILE" ]; then
+    source "$BANNER_FILE"
 fi
 
 # Fix home and end keybinding issue
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+# bindkey "${terminfo[khome]}" beginning-of-line
+# bindkey "${terminfo[kend]}" end-of-line

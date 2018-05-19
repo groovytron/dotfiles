@@ -1,8 +1,10 @@
+#!/bin/bash
+
 # Vagrant
 export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Android
-if [[ `uname` == 'Darwin' ]]
+if [[ $(uname) == 'Darwin' ]]
 then
     export ANDROID_HOME=${HOME}/Library/Android/sdk
 else

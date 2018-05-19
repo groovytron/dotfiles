@@ -38,6 +38,7 @@ nnoremap <silent> <F7> :bp<CR>
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Ctags
 :command MakeTags !ctags -R .
