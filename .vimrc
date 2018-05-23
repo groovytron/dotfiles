@@ -13,6 +13,7 @@ Plugin 'tpope/vim-fugitive' " Git status integration
 Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
 Plugin 'scrooloose/syntastic' " Syntax checking
 Plugin 'mattn/emmet-vim' " HTML snippets
+Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -47,6 +48,11 @@ let NERDTreeShowHidden=1
 
 " emmet-vim (HTML snippets)
 let g:user_emmet_install_global = 0
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
 
 " Code formatters
