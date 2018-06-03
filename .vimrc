@@ -53,7 +53,7 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
-autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown EmmetInstall
+autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown,twig EmmetInstall
 
 " Code formatters
 autocmd Filetype python set equalprg=yapf
