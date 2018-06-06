@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
 Plugin 'scrooloose/syntastic' " Syntax checking
 Plugin 'mattn/emmet-vim' " HTML snippets
 Plugin 'mxw/vim-jsx' " JSX syntax highlighting
+Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -23,7 +24,7 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype javascript,json,html,twig,ruby,yaml,markdown,css,c,cpp set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript,json,html,twig,htmldjango.twig,ruby,yaml,markdown,css,scss,c,cpp set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
@@ -53,13 +54,15 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
-autocmd FileType html,css,js,javascript.jsx,html.twig,php,markdown,twig EmmetInstall
+autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig EmmetInstall
 
 " Code formatters
 autocmd Filetype python set equalprg=yapf
 autocmd Filetype javascript,css set equalprg=prettier
+autocmd Filetype scss set equalprg=prettier\ --parser=scss
 autocmd Filetype markdown set equalprg=tidy-markdown
 autocmd Filetype c,cpp set equalprg=clang-format\ --style=Google
+autocmd Filetype html set equalprg=html-beautify\ --indent-size=2\ --no-preserve-newlines\ -
 
 " Syntax checking
 set statusline+=%#warningmsg#
@@ -70,6 +73,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['sphinx']
+
+" Syntax Higlighting for odd files extensions
+ autocmd BufNewFile,BufRead *.twig set syntax=htmldjango.twig
 
 " File search
 set path+=**
