@@ -1,0 +1,70 @@
+! xterm configuration
+xterm*utf8Title: true
+xterm*boldMode: on
+xterm*faceName: DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgb
+xterm*font: 7x13
+xterm*termName: xterm-256color
+
+! urxvt configuration
+urxvt*utf8Title: true
+urxvt*boldMode: on
+urxvt*font: xft:DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgba
+urxvt*scrollBar: False
+
+! transparency settings
+urxvt*depth: 32
+
+! URLs highlighting
+urxvt.perl-ext: default,matcher
+
+! Home and End keybindings (https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working#Zsh)
+! URxvt.keysym.Home: \033[1~
+! URxvt.keysym.End: \033[4~
+! URxvt.keysym.KP_Home: \033[1~
+! URxvt.keysym.KP_End:  \033[4~
+
+! Open URLs on click
+! urxvt.url-launcher: firefox
+! urxvt.matcher.button: 1
+
+! gruvbox theme
+*.foreground:  #e6d4a3
+*.background:  #1e1e1e
+*.cursorColor: #bbbbbb
+
+! Black
+*.color0:      #161819
+*.color8:      #7f7061
+
+! Red
+*.color1:      #f73028
+*.color9:      #be0f17
+
+! Green
+*.color2:      #aab01e
+*.color10:     #868715
+
+! Yellow
+*.color3:      #f7b125
+*.color11:     #cc881a
+
+! Blue
+*.color4:      #719586
+*.color12:     #377375
+
+! Magenta
+*.color5:      #c77089
+*.color13:     #a04b73
+
+! Cyan
+*.color6:      #7db669
+*.color14:     #578e57
+
+! White
+*.color7:      #faefbb
+*.color15:     #e6d4a3
+
+! Bold, Italic, Underline
+*.colorBD:     #978771
+!*.colorIT:
+!*.colorUL:

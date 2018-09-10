@@ -1,0 +1,12 @@
+*
+!.gitignore
+!groovy_variables.sh
+!.vimrc
+!.vimrc_with_plugins
+!.bashrc
+!.bash_profile
+!.tmux.conf
+!.Xresources.*
+!urxvt-with-tmux-vim-1100x601.png
+!groovy_banner.sh
+!groovy_functions.sh
