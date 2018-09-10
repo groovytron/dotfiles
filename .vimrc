@@ -6,12 +6,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Plugins
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
-Plugin 'vim-airline/vim-airline' " Airline
-Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
-Plugin 'joshdick/onedark.vim' " Themes
+" Themes
+Plugin 'joshdick/onedark.vim'
+Plugin 'morhetz/gruvbox'
+" Tools integration
 Plugin 'tpope/vim-fugitive' " Git status integration
 Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
 Plugin 'scrooloose/syntastic' " Syntax checking
+Plugin 'vim-airline/vim-airline' " Airline
+Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
+" Language specific
 Plugin 'mattn/emmet-vim' " HTML snippets
 Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
@@ -32,7 +36,8 @@ set mouse=a " Enable mouse use (yeah it's bad)
 set cursorline " Higlight cursor's current line
 set splitbelow
 set pastetoggle=<F2>
-colorscheme onedark
+colorscheme gruvbox
+set background=dark
 
 " Buffer navigation
 nnoremap <silent> <F8> :bn<CR>
@@ -103,7 +108,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_theme='onedark' " Sets the airline theme
+let g:airline_theme='gruvbox' " Sets the airline theme
 
 if has("gui_running")
   if has("gui_gtk2") || has("gui_gtk3")
