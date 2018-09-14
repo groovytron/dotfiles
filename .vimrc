@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive' " Git status integration
 Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
 Plugin 'scrooloose/syntastic' " Syntax checking
 Plugin 'vim-airline/vim-airline' " Airline
+Plugin 'enricobacis/vim-airline-clock' " Date and time in vim airline
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
 " Language specific
 Plugin 'mattn/emmet-vim' " HTML snippets
@@ -96,9 +97,11 @@ au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/44
 
 " Airline
 let g:airline_powerline_fonts = 1
+
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -110,6 +113,11 @@ let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 let g:airline_theme='gruvbox' " Sets the airline theme
 
+" Airline clock
+let g:airline#extensions#clock#format = '%a %d %B %H:%M:%S'
+let g:airline#extensions#clock#updatetime = 1000 " Update the clock every second
+
+" Nasty GUI hacks
 if has("gui_running")
   if has("gui_gtk2") || has("gui_gtk3")
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
