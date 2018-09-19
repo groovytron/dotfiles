@@ -117,6 +117,10 @@ let g:airline_theme='gruvbox' " Sets the airline theme
 let g:airline#extensions#clock#format = '%a %d %B %H:%M:%S'
 let g:airline#extensions#clock#updatetime = 1000 " Update the clock every second
 
+" Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
+" (https://sunaku.github.io/vim-256color-bce.html)
+set t_ut=
+
 " Nasty GUI hacks
 if has("gui_running")
   if has("gui_gtk2") || has("gui_gtk3")
