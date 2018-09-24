@@ -29,7 +29,7 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype javascript,json,html,twig,htmldjango.twig,ruby,yaml,markdown,css,scss,c,cpp,xml set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript,json,html,twig,html.twig,htmldjango.twig,ruby,yaml,markdown,css,scss,c,cpp,xml set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
@@ -39,6 +39,9 @@ set splitbelow
 set pastetoggle=<F2>
 colorscheme gruvbox
 set background=dark
+
+" Gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 
 " Buffer navigation
 nnoremap <silent> <F8> :bn<CR>
@@ -64,7 +67,7 @@ autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjan
 
 " Code formatters
 autocmd Filetype python set equalprg=yapf
-autocmd Filetype javascript,javascript.jsx,css set equalprg=prettier
+autocmd Filetype javascript,javascript.jsx,css set equalprg=prettier\ --parser=babylon
 autocmd Filetype scss set equalprg=prettier\ --parser=scss
 autocmd Filetype markdown set equalprg=tidy-markdown
 autocmd Filetype c,cpp set equalprg=clang-format\ --style=Google
