@@ -18,7 +18,7 @@ PS1="\\[\\e[1m\\]\\u@\\h:\\[\\e[38;5;27m\\]\\W \\[\\e[0m\\]\\[\\e[38;5;15m\\]\$g
 # ls result color customization
 export LS_OPTIONS='--color=auto'
 alias ls='ls $LS_OPTIONS'
-eval "$(dircolors ~/dircolors.256dark)"
+# eval "$(dircolors ~/dircolors.256dark)"
 
 shopt -s checkwinsize # Fix bash resize issue
 
