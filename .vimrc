@@ -12,7 +12,10 @@ Plugin 'morhetz/gruvbox'
 " Tools integration
 Plugin 'tpope/vim-fugitive' " Git status integration
 Plugin 'scrooloose/nerdtree' " NERDTree to display project's files tree
-Plugin 'scrooloose/syntastic' " Syntax checking
+" Syntax checking
+Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
+" UI
 Plugin 'vim-airline/vim-airline' " Airline
 Plugin 'enricobacis/vim-airline-clock' " Date and time in vim airline
 Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
