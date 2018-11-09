@@ -22,6 +22,9 @@ alias ls='ls $LS_OPTIONS'
 
 shopt -s checkwinsize # Fix bash resize issue
 
+# Terminal notifications
+source /etc/profile.d/undistract-me.sh
+
 # Import functions
 FUNK=$HOME/groovy_functions.sh
 
