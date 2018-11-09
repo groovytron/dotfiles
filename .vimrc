@@ -29,7 +29,7 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype javascript,json,html,twig,html.twig,htmldjango.twig,ruby,yaml,markdown,css,scss,c,cpp,xml set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype javascript,json,html,twig,html.twig,htmldjango.twig,ruby,yaml,css,scss,c,cpp,xml set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
@@ -54,7 +54,14 @@ let NERDTreeShowHidden=1
 " Ctags
 :command MakeTags !ctags -R .
 
+" Buffers
 :command BufOnly %bd|e#<CR>
+
+" Window sizing
+:command WLarger vertical resize +10
+:command WThinner vertical resize-10
+:command WHigher resize +10
+:command WShorter resize +10
 
 " emmet-vim (HTML snippets)
 let g:user_emmet_install_global = 0
@@ -66,9 +73,12 @@ let g:user_emmet_settings = {
 autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig,xml EmmetInstall
 
 " Code formatters
+autocmd Filetype sh set equalprg=shfmt\ -i\ 4
 autocmd Filetype python set equalprg=yapf
-autocmd Filetype javascript,javascript.jsx,css set equalprg=prettier\ --parser=babylon
-autocmd Filetype scss set equalprg=prettier\ --parser=scss
+autocmd Filetype javascript,javascript.jsx set equalprg=prettier\ --parser=babylon
+autocmd Filetype json set equalprg=prettier\ --parser=json
+autocmd Filetype css,scss,less set equalprg=prettier\ --parser=css
+autocmd Filetype yaml set equalprg=prettier\ --parser=yaml
 autocmd Filetype markdown set equalprg=tidy-markdown
 autocmd Filetype c,cpp set equalprg=clang-format\ --style=Google
 autocmd Filetype html set equalprg=html-beautify\ --indent-size=2\ --no-preserve-newlines\ -
