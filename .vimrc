@@ -23,6 +23,8 @@ Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
 Plugin 'mattn/emmet-vim' " HTML snippets
 Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
+" Fuzzy finder
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -132,6 +134,11 @@ let g:airline_theme='gruvbox' " Sets the airline theme
 " Airline clock
 let g:airline#extensions#clock#format = '%a %d %B %H:%M:%S'
 let g:airline#extensions#clock#updatetime = 1000 " Update the clock every second
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_show_hidden = 1
 
 " Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
 " (https://sunaku.github.io/vim-256color-bce.html)
