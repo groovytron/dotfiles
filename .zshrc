@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.5.0/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -18,7 +18,8 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+git
+notify
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -31,6 +32,10 @@ FUNK=$HOME/groovy_functions.sh
 load_groovy_variables
 
 show_groovy_banner
+
+[[ -f /usr/share/undistract-me/long-running.bash ]] \
+    && source /usr/share/undistract-me/long-running.bash \
+    && notify_when_long_running_commands_finish_install
 
 # Fix home and end keybinding issue
 # bindkey "${terminfo[khome]}" beginning-of-line
