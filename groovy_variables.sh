@@ -11,11 +11,10 @@ export TMUX_POWERLINE_SYMBOLS="powerline"
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # Vagrant
-export VAGRANT_DEFAULT_PROVIDER=libvirt
+# export VAGRANT_DEFAULT_PROVIDER=libvirt
 
 # Android
-if [[ $(uname) == 'Darwin' ]]
-then
+if [[ $(uname) == 'Darwin' ]]; then
     export ANDROID_HOME=${HOME}/Library/Android/sdk
 else
     export ANDROID_HOME=${HOME}/Android/Sdk
