@@ -1,14 +1,16 @@
 ! xterm configuration
 xterm*utf8Title: true
 xterm*boldMode: on
-xterm*faceName: DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgb
+! xterm*faceName: DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgb
+xterm*faceName: InputMono:size=12:minspace:rgba=rgb
 xterm*font: 7x13
 xterm*termName: xterm-256color
 
 ! urxvt configuration
 urxvt*utf8Title: true
 urxvt*boldMode: on
-urxvt*font: xft:DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgba
+! urxvt*font: xft:DejaVu Sans Mono For Powerline:size=12:minspace:rgba=rgba
+urxvt*font: xft:InputMono:minspace:size=12:rgba=rgba
 urxvt*scrollBar: False
 
 ! transparency settings
