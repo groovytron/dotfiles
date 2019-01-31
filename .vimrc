@@ -25,6 +25,8 @@ Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 " Fuzzy finder
 Plugin 'ctrlpvim/ctrlp.vim'
+" Editor configuration sharing
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -139,6 +141,11 @@ let g:airline#extensions#clock#updatetime = 1000 " Update the clock every second
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
+
+" EditorConfig
+" Ensure EditorConfig plugin works well with vim-fugitive plugin and
+" avoid loading EditorConfig for any remote files over ssh
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
 " (https://sunaku.github.io/vim-256color-bce.html)
