@@ -27,6 +27,8 @@ Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 Plugin 'ctrlpvim/ctrlp.vim'
 " Editor configuration sharing
 Plugin 'editorconfig/editorconfig-vim'
+" Dev Icons (must be the very last loaded plugin)
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -154,7 +156,7 @@ set t_ut=
 " Nasty GUI hacks
 if has("gui_running")
   if has("gui_gtk2") || has("gui_gtk3")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
+    set guifont=Input\ Mono\ Nerd\ Font\ 12
   elseif has("gui_photon")
     set guifont=Courier\ New:s11
   elseif has("gui_kde")
