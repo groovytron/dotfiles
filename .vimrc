@@ -43,7 +43,7 @@ autocmd Filetype javascript,json,html,twig,html.twig,htmldjango.twig,ruby,yaml,c
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
 set mouse=a " Enable mouse use (yeah it's bad)
-set cursorline " Higlight cursor's current line
+set cursorline " Highlight cursor's current line
 set splitbelow
 set pastetoggle=<F2>
 colorscheme gruvbox
