@@ -23,6 +23,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events' " Autoreload
 Plugin 'mattn/emmet-vim' " HTML snippets
 Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
+Plugin 'posva/vim-vue' " VueJS
 " Fuzzy finder
 Plugin 'ctrlpvim/ctrlp.vim'
 " Editor configuration sharing
@@ -38,13 +39,14 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype javascript,json,html,twig,html.twig,htmldjango.twig,ruby,yaml,css,scss,c,cpp,xml set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype c,cpp,css,html,htmldjango.twig,html.twig,javascript,json,php,scss,twig,ruby,yaml,vim,xml set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
 set mouse=a " Enable mouse use (yeah it's bad)
 set cursorline " Highlight cursor's current line
 set splitbelow
+set splitright
 set pastetoggle=<F2>
 colorscheme gruvbox
 set background=dark
@@ -79,7 +81,7 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
-autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig,xml EmmetInstall
+autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig,xml,vue EmmetInstall
 
 " Code formatters
 autocmd Filetype sh set equalprg=shfmt\ -i\ 4
@@ -108,6 +110,7 @@ let g:syntastic_rst_checkers = ['sphinx']
 
 " Syntax Higlighting for odd files extensions
 " autocmd BufNewFile,BufRead *.twig set syntax=htmldjango.twig
+autocmd BufRead,BufNewFile *.vue set syntax=html
 
 " File search
 set path+=**
@@ -118,7 +121,7 @@ set wildmenu
 au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file/13092#13092
 
 " Airline
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -166,6 +169,10 @@ if has("gui_running")
   else
     set guifont=Courier_New:h11:cDEFAULT
   endif
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 endif
 
 " urxvt transparency hack
