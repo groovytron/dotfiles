@@ -22,3 +22,6 @@ fi
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export ANDROID_SDK_ROOT=${ANDROID_HOME}
+
+# Ansible
+export ANSIBLE_NOCOWS=1
