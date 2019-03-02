@@ -18,11 +18,14 @@ if [ -z "$1" ] || [ -z "$2" ]
     exit
 fi
 
+SSH_USER=$1
+SSH_HOST=$2
+
 SSH_PORT=22
 
-if [ ! -z "$3" ]
+if [ -n "$3" ]
   then
     SSH_PORT=$3
 fi
 
-ssh "$1"@"$2" -p "$SSH_PORT" 'cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p "$SSH_PORT" "$SSH_USER@$SSH_HOST"
