@@ -25,7 +25,7 @@ Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 Plugin 'posva/vim-vue' " VueJS
 " Fuzzy finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
 " Editor configuration sharing
 Plugin 'editorconfig/editorconfig-vim'
 " Dev Icons (must be the very last loaded plugin)
@@ -136,16 +136,28 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-let g:airline_theme='gruvbox' " Sets the airline theme
+let g:airline_theme = 'gruvbox' " Sets the airline theme
 
 " Airline clock
 let g:airline#extensions#clock#format = '%a %d %B %H:%M:%S'
 let g:airline#extensions#clock#updatetime = 1000 " Update the clock every second
 
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_show_hidden = 1
+" FZF
+nnoremap <C-p> :FZF<CR>
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " EditorConfig
 " Ensure EditorConfig plugin works well with vim-fugitive plugin and
