@@ -25,3 +25,10 @@ export ANDROID_SDK_ROOT=${ANDROID_HOME}
 
 # Ansible
 export ANSIBLE_NOCOWS=1
+
+# Zathura
+alias zathura='zathura --fork'
+
+# Go
+export GOPATH=$HOME/go
+export PATH=${PATH}:${GOPATH}/bin
