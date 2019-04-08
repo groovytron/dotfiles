@@ -13,7 +13,8 @@ GITAWARE_MAIN="$GITAWAREPROMPT/main.sh"
 [[ -f "$GITAWARE_MAIN" ]] && source "$GITAWARE_MAIN" || echo "Gitaware prompt not installed :-("
 
 
-PS1="\\[\\e[1m\\]\\u@\\h:\\[\\e[38;5;27m\\]\\W \\[\\e[0m\\]\\[\\e[38;5;15m\\]\$git_branch\\[$txtred\\]\$git_dirty\\[$txtrst\\]\$ "
+# PS1="\\[\\e[1m\\]\\u@\\h:\\[\\e[38;5;27m\\]\\W \\[\\e[0m\\]\\[\\e[38;5;15m\\]\$git_branch\\[$txtred\\]\$git_dirty\\[$txtrst\\]\$ "
+export PS1="\[\033[38;5;22m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] at \[$(tput sgr0)\]\[\033[38;5;226m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] in \[$(tput sgr0)\]\[\033[38;5;196m\]\w\[$(tput sgr0)\]\\[\\e[38;5;15m\\]\$git_branch\\[$txtred\\]\$git_dirty\\[$txtrst\\] "
 
 # ls result color customization
 export LS_OPTIONS='--color=auto'
