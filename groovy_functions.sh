@@ -12,3 +12,8 @@ load_groovy_variables() {
 show_groovy_banner() {
     [[ -f "$BANNER_FILE" ]] && source "$BANNER_FILE" || echo "Banner file not found :-("
 }
+
+gimme_shrug() {
+    printf '¯\_(ツ)_/¯' | xclip -selection clipboard
+    echo "Sorry it's in your clipboard now. ¯\\_(ツ)_/¯"
+}
