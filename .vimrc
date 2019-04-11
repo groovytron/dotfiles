@@ -26,6 +26,8 @@ Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 Plugin 'posva/vim-vue' " VueJS
 " Fuzzy finder
 Plugin 'junegunn/fzf'
+" Org-Mode
+Plugin 'jceb/vim-orgmode'
 " Editor configuration sharing
 Plugin 'editorconfig/editorconfig-vim'
 " Dev Icons (must be the very last loaded plugin)
