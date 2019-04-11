@@ -1,0 +1,6 @@
+/*
+ * gVim right and bottom white border backgroun color fix
+ */
+#vim-main-window {
+  background-color: #282828; /*: theme background color */
+}
