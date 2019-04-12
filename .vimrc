@@ -26,6 +26,8 @@ Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 Plugin 'posva/vim-vue' " VueJS
 " Fuzzy finder
 Plugin 'junegunn/fzf'
+" ack, ag, grep, ...
+Plugin 'mileszs/ack.vim'
 " Org-Mode
 Plugin 'jceb/vim-orgmode'
 " Editor configuration sharing
@@ -160,6 +162,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" ack.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " EditorConfig
 " Ensure EditorConfig plugin works well with vim-fugitive plugin and
