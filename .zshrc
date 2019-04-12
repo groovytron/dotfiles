@@ -37,6 +37,16 @@ show_groovy_banner
     && source /usr/share/undistract-me/long-running.bash \
     && notify_when_long_running_commands_finish_install
 
+# shellcheck source=/dev/null
+source "$HOME/completions/zsh/tmuxinator.zsh"
+
 # Fix home and end keybinding issue
 # bindkey "${terminfo[khome]}" beginning-of-line
 # bindkey "${terminfo[kend]}" end-of-line
+
+# gopass zsh completion fix (https://github.com/gopasspw/gopass/issues/585#issuecomment-355416844)
+
+# shellcheck source=/dev/null
+source "$HOME/completions/zsh/gopass.zsh"
+compdef _gopass gopass
+autoload -U compinit && compinit

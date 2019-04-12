@@ -10,6 +10,7 @@
 export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
 GITAWARE_MAIN="$GITAWAREPROMPT/main.sh"
 
+# shellcheck source=/dev/null
 [[ -f "$GITAWARE_MAIN" ]] && source "$GITAWARE_MAIN" || echo "Gitaware prompt not installed :-("
 
 
@@ -30,8 +31,12 @@ source /etc/profile.d/undistract-me.sh
 # Import functions
 FUNK=$HOME/groovy_functions.sh
 
+# shellcheck source=/dev/null
 [[ -f "$FUNK" ]] && source "$FUNK" || echo "Could not find functions file :-("
 
 load_groovy_variables
 
 show_groovy_banner
+
+# shellcheck source=/dev/null
+source "$HOME/completions/bash/tmuxinator.bash"
