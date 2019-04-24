@@ -32,3 +32,7 @@ alias zathura='zathura --fork'
 # Go
 export GOPATH=$HOME/go
 export PATH=${PATH}:${GOPATH}/bin
+
+# FZF
+# Search hidden files (https://www.reddit.com/r/neovim/comments/48ymsn/fzf_how_to_show_hidden_files/d0oji2s)
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
