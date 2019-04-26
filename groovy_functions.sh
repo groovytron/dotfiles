@@ -38,3 +38,35 @@ clip_file() {
     fi
     xclip -selection clipboard < "$1"
 }
+
+
+
+
+function ssh_me() {
+    local SSH_ME_USAGE='Usage: ssh_me [USERNAME] [HOSTNAME or IP ADDRESS] [PORT]'
+
+    if [ $# -eq 0 ]
+      then
+        echo "No arguments supplied"
+        echo "$SSH_ME_USAGE"
+        return 1
+    fi
+
+    if [ -z "$1" ] || [ -z "$2" ]
+      then
+        echo "Missing argument"
+        echo "$SSH_ME_USAGE"
+        return 1
+    fi
+
+    local SSH_ME_USER=$1
+    local SSH_ME_HOST=$2
+    local SSH_ME_PORT=22
+
+    if [ -n "$3" ]
+      then
+        SSH_ME_PORT=$3
+    fi
+
+    ssh-copy-id -i ~/.ssh/id_rsa.pub -p "$SSH_ME_PORT" "$SSH_ME_USER@$SSH_ME_HOST"
+}

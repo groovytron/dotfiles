@@ -10,7 +10,6 @@
 !urxvt-with-tmux-vim-1100x601.png
 !groovy_banner.sh
 !groovy_functions.sh
-!ssh_me.sh
 !.emacs
 # gVim right and bottom border background color fix
 !.config/gtk-3.0/gtk.css
