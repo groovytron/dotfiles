@@ -36,3 +36,6 @@ export PATH=${PATH}:${GOPATH}/bin
 # FZF
 # Search hidden files (https://www.reddit.com/r/neovim/comments/48ymsn/fzf_how_to_show_hidden_files/d0oji2s)
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
+
+# Ruby
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$HOME/bin:/usr/local/bin:$PATH

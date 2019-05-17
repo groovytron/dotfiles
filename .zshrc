@@ -1,5 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$HOME/bin:/usr/local/bin:$PATH
+# Import functions
+FUNK=$HOME/groovy_functions.sh
+
+[[ -f "$FUNK" ]] && source "$FUNK" || echo "Could not find functions file :-("
+
+load_groovy_variables
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -23,13 +27,6 @@ notify
 )
 
 source "$ZSH/oh-my-zsh.sh"
-
-# Import functions
-FUNK=$HOME/groovy_functions.sh
-
-[[ -f "$FUNK" ]] && source "$FUNK" || echo "Could not find functions file :-("
-
-load_groovy_variables
 
 show_groovy_banner
 
