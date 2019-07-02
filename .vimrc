@@ -166,10 +166,17 @@ let g:fzf_colors =
 " ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " EditorConfig
 " Ensure EditorConfig plugin works well with vim-fugitive plugin and
 " avoid loading EditorConfig for any remote files over ssh
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Find duplicates
+:command FindDuplicates syn clear Repeat | g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' | nohlsearch
 
 " Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
 " (https://sunaku.github.io/vim-256color-bce.html)
