@@ -39,3 +39,9 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
 
 # Ruby
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$HOME/bin:/usr/local/bin:$PATH
+
+# Tmuxinator
+alias mux="tmuxinator"
+
+#.NET Core
+export DOTNET_CLI_TELEMETRY_OPTOUT=1

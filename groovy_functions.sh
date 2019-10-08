@@ -24,7 +24,7 @@ gimme_shrug() {
 # find and replace the specified pattern in all files in the specified folder
 sed_nuke() {
     if [ $# -ne 2 ]; then
-        echo 'Usage sed_nuke [sed-pattern] [folder]'
+        echo 'Usage sed_nuke [sed-expression] [folder]'
         return 1
     fi
     find "$2" -type f -print0 | xargs -0 sed -i "$1"
