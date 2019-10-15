@@ -45,3 +45,6 @@ alias mux="tmuxinator"
 
 #.NET Core
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+# Bat
+export BAT_STYLE='plain'
