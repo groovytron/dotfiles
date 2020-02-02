@@ -178,6 +178,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Find duplicates
 :command FindDuplicates syn clear Repeat | g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' | nohlsearch
 
+" Secure gopass files
+au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
+
 " Fixing Vim's Background Color Erase for 256-color tmux and GNU screen
 " (https://sunaku.github.io/vim-256color-bce.html)
 set t_ut=
