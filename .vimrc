@@ -67,7 +67,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " Ctags
-:command MakeTags !ctags -R --exclude=.git --exclude=node_modules --exclude=vendor --exclude=composer.json --exclude=package.json --exclude=package-lock.json --exclude=*.lock .
+:command MakeTags !ctags -R --exclude=.git --exclude=node_modules --exclude=vendor --exclude=composer.json --exclude=package.json --exclude=package-lock.json --exclude=symfony.lock --exclude=composer.lock .
 
 " Buffers
 :command BufOnly %bd|e#<CR>
