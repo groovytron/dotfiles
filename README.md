@@ -9,7 +9,7 @@ To install one or many configurations, do the following:
 2. Go into the cloned repository by running `cd ~/dotfiles`.
 3. Run `make install_all` to install all the configurations. *You can run `make help` to list all the available installations if you only want to install the configuration of one tool.*
 
-The `Makfile` mainly creates symbolic links but **it will overwrite you current configuration files so have a look at the `Makefile` before running something if you are not sure of what you are doing and backup your configuration files.**
+The `Makefile` mainly creates symbolic links but **it will overwrite you current configuration files so have a look at the `Makefile` and backup your configuration files before running something if you are not sure of what you are doing.**
 
 I use the below tools.
 
