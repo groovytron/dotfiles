@@ -29,6 +29,9 @@ export ANSIBLE_NOCOWS=1
 # Zathura
 alias zathura='zathura --fork'
 
+# Glow
+alias glow='glow --pager'
+
 # Go
 export GOPATH=$HOME/go
 export PATH=${PATH}:${GOPATH}/bin
