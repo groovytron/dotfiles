@@ -64,43 +64,55 @@ install_vim: ##- Install Vim configuration and Vundle
 install_vim: $(VIMRC_INSTALL)
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing banner script...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(BASH_PROFILE_INSTALL): $(BASH_PROFILE) $(BASH_RC_INSTALL)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing .bash_profile script...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(BASH_RC_INSTALL): $(BASH_RC) $(GIT_PROMPT_INSTALL) $(SHELL_UNIVERSE)
-	@ln -sf $(shell pwd)/$< $@ && \
+	@echo 'Installing .bashrc script...' && \
+		ln -sf $(shell pwd)/$< $@ && \
 		([ -e /etc/profile.d/undistract-me.sh ] || echo 'Install undistract-me.sh to finalize the installation or comment the line using it in your shell configuration file')
 
 $(GIT_PROMPT_INSTALL):
-	@mkdir -p $(HOME)/.bash && \
+	@echo 'Installing Git Aware Prompt for bash...' && \
+		mkdir -p $(HOME)/.bash && \
 		git clone $(GIT_FLAGS) https://github.com/jimeh/git-aware-prompt.git $@
 
 $(FUNCTIONS_SCRIPT): $(GROOVY_FUNCTIONS)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing functions script...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(VARIABLES_SCRIPT): $(GROOVY_VARIABLES)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing environment variables script...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(ZSH_RC_INSTALL): $(ZSH_RC) $(SHELL_UNIVERSE)
-	@ln -sf $(shell pwd)/$< $@ && \
+	@echo 'Installing .zshrc  script...' && \
+		ln -sf $(shell pwd)/$< $@ && \
 		echo 'ZSH configuration installed. Do not forget to install zsh and oh-my-zsh to use this configuration.'
 
 $(COMPLETION_FILES_INSTALL): $(COMPLETION_FILES)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing shell completion script...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(TPM_DIR_INSTALL):
-	@mkdir -p $(TPM_DIR) && \
+	@echo 'Installing TPM...' && \
+		mkdir -p $(TPM_DIR) && \
 		git clone $(GIT_FLAGS) https://github.com/tmux-plugins/tpm $@
 
 $(TMUX_CONF_INSTALL): $(TMUX_CONF)
-	@ln -sf $(shell pwd)/$< $@
+	@echo 'Installing tmux configuration...' && \
+		ln -sf $(shell pwd)/$< $@
 
 $(VIMRC_INSTALL): $(VIMRC) $(VUNDLE_INSTALL)
-	@ln -sf $(shell pwd)/$< $@ && \
+	@echo 'Installing vim configuration...' && \
+		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Vim configuration installed. Do not forget to open vim and run :PluginIntall to install plugins and fix errors. Some softwares such as fzf might need to be installed as well to get some extra features working. See the README.md for details.'
 
 $(VUNDLE_INSTALL):
-	@mkdir -p $(VIM_BUNDLE_DIR) && \
+	@echo 'Installing Vundle...' && \
+		mkdir -p $(VIM_BUNDLE_DIR) && \
 		git clone $(GIT_FLAGS) https://github.com/VundleVim/Vundle.vim.git $@
