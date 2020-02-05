@@ -103,4 +103,4 @@ $(VIMRC_INSTALL): $(VIMRC) $(VUNDLE_INSTALL)
 
 $(VUNDLE_INSTALL):
 	@mkdir -p $(VIM_BUNDLE_DIR) && \
-		git clone https://github.com/VundleVim/Vundle.vim.git $@
+		git clone $(GIT_FLAGS) https://github.com/VundleVim/Vundle.vim.git $@
