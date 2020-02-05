@@ -1,5 +1,7 @@
 # Groovytron dotfiles
 
+[![Build Status](https://travis-ci.org/groovytron/dotfiles.svg?branch=master)](https://travis-ci.org/groovytron/dotfiles)
+
 This is a quick backup of my dotfiles to make tool configuration easier in case
 of system issue. The [M̀akefile](https://github.com/groovytron/dotfiles/blob/master/Makefile) can be used to install configurations of different tools.
 
