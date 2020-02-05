@@ -1,0 +1,11 @@
+language: generic
+
+addons:
+  apt:
+    packages:
+      - git
+      - make
+
+script:
+  - make help
+  - make install_all
