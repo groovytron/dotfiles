@@ -38,19 +38,29 @@ VUNDLE_INSTALL=$(VIM_BUNDLE_DIR)/Vundle.vim
 VIMRC=.vimrc
 VIMRC_INSTALL=$(HOME)/$(VIMRC)
 
-.PHONY: full_install
-full_install: install_bash install_zsh install_tmux install_vim
+GIT_FLAGS=--quiet
+
+help: ##- Show this help
+	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/: /; s/#\{2\}- *//' $(MAKEFILE_LIST)
+
+.PHONY: install_all
+install_all: ##- Install all the configurations
+install_all: install_bash install_zsh install_tmux install_vim
 
 .PHONY: install_bash
+install_bash: ##- Install Bash configuration
 install_bash: $(BASH_PROFILE_INSTALL)
 
 .PHONY: install_zsh
+install_zsh: ##- Install ZSH configuration
 install_zsh: $(ZSH_RC_INSTALL)
 
 .PHONY: install_tmux
+install_tmux: ##- Install tmux configuration and TPM (Tmux Package Manager)
 install_tmux: $(TMUX_CONF_INSTALL) $(TPM_DIR_INSTALL)
 
 .PHONY: install_vim
+install_vim: ##- Install Vim configuration and Vundle
 install_vim: $(VIMRC_INSTALL)
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
@@ -65,7 +75,7 @@ $(BASH_RC_INSTALL): $(BASH_RC) $(GIT_PROMPT_INSTALL) $(SHELL_UNIVERSE)
 
 $(GIT_PROMPT_INSTALL):
 	@mkdir -p $(HOME)/.bash && \
-		git clone git://github.com/jimeh/git-aware-prompt.git $@
+		git clone $(GIT_FLAGS) https://github.com/jimeh/git-aware-prompt.git $@
 
 $(FUNCTIONS_SCRIPT): $(GROOVY_FUNCTIONS)
 	@ln -sf $(shell pwd)/$< $@
@@ -81,8 +91,8 @@ $(COMPLETION_FILES_INSTALL): $(COMPLETION_FILES)
 	@ln -sf $(shell pwd)/$< $@
 
 $(TPM_DIR_INSTALL):
-	mkdir -p $(TPM_DIR) && \
-	git clone https://github.com/tmux-plugins/tpm $@
+	@mkdir -p $(TPM_DIR) && \
+		git clone $(GIT_FLAGS) https://github.com/tmux-plugins/tpm $@
 
 $(TMUX_CONF_INSTALL): $(TMUX_CONF)
 	@ln -sf $(shell pwd)/$< $@
