@@ -2,6 +2,7 @@
 
 VARS_FILE=$HOME/groovy_variables.sh
 BANNER_FILE=$HOME/groovy_banner.sh
+ADMINER_PORT=8081
 
 # Load environment variables (Vagrant, Android & Cie)
 load_groovy_variables() {
@@ -39,9 +40,6 @@ clip_file() {
     xclip -selection clipboard < "$1"
 }
 
-
-
-
 function ssh_me() {
     local SSH_ME_USAGE='Usage: ssh_me [USERNAME] [HOSTNAME or IP ADDRESS] [PORT]'
 
@@ -69,4 +67,15 @@ function ssh_me() {
     fi
 
     ssh-copy-id -i ~/.ssh/id_rsa.pub -p "$SSH_ME_PORT" "$SSH_ME_USER@$SSH_ME_HOST"
+}
+
+function adminer() {
+    if docker ps --format '{{ .Image }}' | grep 'adminer' > /dev/null; then
+        echo 'Adminer is already runnning'
+        docker ps | grep 'adminer'
+    else
+        echo 'Starting adminer container...' && \
+        docker run --detach -p "$ADMINER_PORT":8080 --env ADMINER_DESIGN='nette' adminer:4.7 && \
+        echo "Adminer is accessible at http://localhost:$ADMINER_PORT !"
+    fi
 }
