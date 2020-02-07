@@ -38,6 +38,10 @@ VUNDLE_INSTALL=$(VIM_BUNDLE_DIR)/Vundle.vim
 VIMRC=.vimrc
 VIMRC_INSTALL=$(HOME)/$(VIMRC)
 
+ZATHURARC=zathurarc
+ZATHURA_DIR=$(HOME)/.config/zathura
+ZATHURARC_INSTALL=$(ZATHURA_DIR)/$(ZATHURARC)
+
 GIT_FLAGS=--quiet
 
 help: ##- Show this help
@@ -45,7 +49,7 @@ help: ##- Show this help
 
 .PHONY: install_all
 install_all: ##- Install all the configurations
-install_all: install_bash install_zsh install_tmux install_vim
+install_all: install_bash install_zsh install_tmux install_vim install_zathura
 
 .PHONY: install_bash
 install_bash: ##- Install Bash configuration
@@ -63,31 +67,41 @@ install_tmux: $(TMUX_CONF_INSTALL) $(TPM_DIR_INSTALL)
 install_vim: ##- Install Vim configuration and Vundle
 install_vim: $(VIMRC_INSTALL)
 
+.PHONY: install_zathura
+install_zathura: ##- Install Zathura configuration
+install_zathura: $(ZATHURARC_INSTALL)
+
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
-		ln -sf $(shell pwd)/$< $@
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Banner script installed.'
 
 $(BASH_PROFILE_INSTALL): $(BASH_PROFILE) $(BASH_RC_INSTALL)
 	@echo 'Installing .bash_profile script...' && \
-		ln -sf $(shell pwd)/$< $@
+		ln -sf $(shell pwd)/$< $@ && \
+		echo '.bash_profile installed.'
 
 $(BASH_RC_INSTALL): $(BASH_RC) $(GIT_PROMPT_INSTALL) $(SHELL_UNIVERSE)
 	@echo 'Installing .bashrc script...' && \
 		ln -sf $(shell pwd)/$< $@ && \
+		echo '.bashrc script installed.' && \
 		([ -e /etc/profile.d/undistract-me.sh ] || echo 'Install undistract-me.sh to finalize the installation or comment the line using it in your shell configuration file')
 
 $(GIT_PROMPT_INSTALL):
 	@echo 'Installing Git Aware Prompt for bash...' && \
 		mkdir -p $(HOME)/.bash && \
-		git clone $(GIT_FLAGS) https://github.com/jimeh/git-aware-prompt.git $@
+		git clone $(GIT_FLAGS) https://github.com/jimeh/git-aware-prompt.git $@ && \
+		echo 'Git Aware Prompt installed.'
 
 $(FUNCTIONS_SCRIPT): $(GROOVY_FUNCTIONS)
 	@echo 'Installing functions script...' && \
-		ln -sf $(shell pwd)/$< $@
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Functions script installed.'
 
 $(VARIABLES_SCRIPT): $(GROOVY_VARIABLES)
 	@echo 'Installing environment variables script...' && \
-		ln -sf $(shell pwd)/$< $@
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Environment variables script installed.'
 
 $(ZSH_RC_INSTALL): $(ZSH_RC) $(SHELL_UNIVERSE)
 	@echo 'Installing .zshrc  script...' && \
@@ -95,17 +109,20 @@ $(ZSH_RC_INSTALL): $(ZSH_RC) $(SHELL_UNIVERSE)
 		echo 'ZSH configuration installed. Do not forget to install zsh and oh-my-zsh to use this configuration.'
 
 $(COMPLETION_FILES_INSTALL): $(COMPLETION_FILES)
-	@echo 'Installing shell completion script...' && \
-		ln -sf $(shell pwd)/$< $@
+	@echo 'Installing shell completion scripts...' && \
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Shell completion scripts installed.'
 
 $(TPM_DIR_INSTALL):
 	@echo 'Installing TPM...' && \
 		mkdir -p $(TPM_DIR) && \
-		git clone $(GIT_FLAGS) https://github.com/tmux-plugins/tpm $@
+		git clone $(GIT_FLAGS) https://github.com/tmux-plugins/tpm $@ && \
+		echo 'TPM installed.'
 
 $(TMUX_CONF_INSTALL): $(TMUX_CONF)
 	@echo 'Installing tmux configuration...' && \
-		ln -sf $(shell pwd)/$< $@
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Tmux configuration installed.'
 
 $(VIMRC_INSTALL): $(VIMRC) $(VUNDLE_INSTALL)
 	@echo 'Installing vim configuration...' && \
@@ -115,4 +132,11 @@ $(VIMRC_INSTALL): $(VIMRC) $(VUNDLE_INSTALL)
 $(VUNDLE_INSTALL):
 	@echo 'Installing Vundle...' && \
 		mkdir -p $(VIM_BUNDLE_DIR) && \
-		git clone $(GIT_FLAGS) https://github.com/VundleVim/Vundle.vim.git $@
+		git clone $(GIT_FLAGS) https://github.com/VundleVim/Vundle.vim.git $@ && \
+		echo 'Vundle installed.'
+
+$(ZATHURARC_INSTALL): $(ZATHURARC)
+	@echo 'Installing Zathura configuration...' && \
+		mkdir -p $(ZATHURA_DIR) && \
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Zathura configuration installed.'

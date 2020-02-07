@@ -62,6 +62,7 @@ There are some homemade commands, aliases and environement variables definitions
 - [`bat`](https://github.com/sharkdp/bat) as a replacement for `cat`
 - [`glow`](https://github.com/charmbracelet/glow) to read Markdown files in the terminal
 - [`fzf`](https://github.com/junegunn/fzf) as a command-line fuzzy finder an pluggable to vim
+- [`zathura`](https://pwmt.org/projects/zathura/) as a document viewer (have a look at my [zathurarc](https://github.com/groovytron/dotfiles/blob/master/zathurarc) to check the configuration)
 
 ## Fonts
 
