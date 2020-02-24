@@ -178,6 +178,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Find duplicates
 :command FindDuplicates syn clear Repeat | g/^\(.*\)\n\ze\%(.*\n\)*\1$/exe 'syn match Repeat "^' . escape(getline('.'), '".\^$*[]') . '$"' | nohlsearch
 
+" Copy file content to clipboard
+:command CopyFileContent normal ggVG"+y''
+
 " Secure gopass files
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 
