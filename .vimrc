@@ -181,6 +181,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Copy file content to clipboard
 :command CopyFileContent normal ggVG"+y''
 
+" Format file content
+:command FixFile normal gg=G''
+
 " Secure gopass files
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 
