@@ -43,7 +43,7 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype c,cpp,css,html,htmldjango.twig,html.twig,javascript,json,php,scss,twig,ruby,yaml,vim,xml,puml set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype md,markdown,c,cpp,css,html,htmldjango.twig,html.twig,javascript,json,php,scss,twig,ruby,yaml,vim,xml,puml set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
