@@ -51,3 +51,6 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Bat
 export BAT_STYLE='plain'
+
+# Docker
+alias docker_nuke='docker system prune -a --volumes'
