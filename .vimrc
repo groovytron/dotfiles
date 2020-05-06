@@ -24,6 +24,7 @@ Plugin 'mattn/emmet-vim' " HTML snippets
 Plugin 'mxw/vim-jsx' " JSX syntax highlighting
 Plugin 'lumiliet/vim-twig' " Twig syntax highlighting
 Plugin 'posva/vim-vue' " VueJS
+Plugin 'leafgarland/typescript-vim' " Typescript
 " Fuzzy finder
 Plugin 'junegunn/fzf'
 " ack, ag, grep, ...
