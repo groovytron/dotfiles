@@ -35,6 +35,8 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'editorconfig/editorconfig-vim'
 " Dev Icons (must be the very last loaded plugin)
 Plugin 'ryanoasis/vim-devicons'
+" Ansible plugin (also improves yaml support)
+Plugin 'pearofducks/ansible-vim'
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
