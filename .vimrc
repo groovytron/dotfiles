@@ -126,6 +126,7 @@ set wildmenu
 " Autoreload
 " set autoread
 au FocusGained,BufEnter * :checktime " https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file/13092#13092
+set backupcopy=yes
 
 " Airline
 " let g:airline_powerline_fonts = 1
