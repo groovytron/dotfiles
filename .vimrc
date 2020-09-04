@@ -187,6 +187,16 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Format file content
 :command FixFile normal gg=G''
+" nnoremap <silent> <C-L> :FixFile<CR>
+
+" Format log stacktrace
+:command UntanglePyStacktrace %s/ File "/\r File "/g | :%s/#012/\r/g
+
+" HexEditor Mode
+:command HexEditorMode %!xxd
+
+" Make shortcuts
+" nnoremap <silent> <M-b> :make<CR>
 
 " Secure gopass files
 au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
