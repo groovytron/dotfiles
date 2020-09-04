@@ -47,3 +47,7 @@ source "$HOME/completions/zsh/tmuxinator.zsh"
 source "$HOME/completions/zsh/gopass.zsh"
 compdef _gopass gopass
 autoload -U compinit && compinit
+
+# Vault
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
