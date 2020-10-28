@@ -42,6 +42,9 @@ ZATHURARC=zathurarc
 ZATHURA_DIR=$(HOME)/.config/zathura
 ZATHURARC_INSTALL=$(ZATHURA_DIR)/$(ZATHURARC)
 
+LATEXMKRC=.latexmkrc
+LATEXMKRC_INSTALL=$(HOME)/$(LATEXMKRC)
+
 GIT_FLAGS=--quiet
 
 help: ##- Show this help
@@ -70,6 +73,10 @@ install_vim: $(VIMRC_INSTALL)
 .PHONY: install_zathura
 install_zathura: ##- Install Zathura configuration
 install_zathura: $(ZATHURARC_INSTALL)
+
+.PHONY: install_latexmk
+install_latexmk: ##- Install Latexmk configurartion
+install_latexmk: $(LATEXMKRC_INSTALL)
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
@@ -140,3 +147,8 @@ $(ZATHURARC_INSTALL): $(ZATHURARC)
 		mkdir -p $(ZATHURA_DIR) && \
 		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Zathura configuration installed.'
+
+$(LATEXMKRC_INSTALL): $(LATEXMKRC)
+	@echo 'Installing Latexmk configuration...' && \
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Latexmk configuration installed.'
