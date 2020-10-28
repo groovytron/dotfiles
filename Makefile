@@ -134,7 +134,7 @@ $(TMUX_CONF_INSTALL): $(TMUX_CONF)
 $(VIMRC_INSTALL): $(VIMRC) $(VUNDLE_INSTALL)
 	@echo 'Installing vim configuration...' && \
 		ln -sf $(shell pwd)/$< $@ && \
-		echo 'Vim configuration installed. Do not forget to open vim and run :PluginIntall to install plugins and fix errors. You can also run \'vim +PluginInstall +qall\' to be quicker. Some softwares such as fzf might need to be installed as well to get some extra features working. See the README.md for details.'
+		echo "Vim configuration installed. Do not forget to open vim and run :PluginIntall to install plugins and fix errors. You can also run 'vim +PluginInstall +qall' to be quicker. Some softwares such as fzf might need to be installed as well to get some extra features working. See the README.md for details."
 
 $(VUNDLE_INSTALL):
 	@echo 'Installing Vundle...' && \
