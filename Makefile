@@ -52,7 +52,7 @@ help: ##- Show this help
 
 .PHONY: install_all
 install_all: ##- Install all the configurations
-install_all: install_bash install_zsh install_tmux install_vim install_zathura
+install_all: install_bash install_zsh install_tmux install_vim install_zathura install_latexmk
 
 .PHONY: install_bash
 install_bash: ##- Install Bash configuration
