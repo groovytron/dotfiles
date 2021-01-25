@@ -54,3 +54,4 @@ export BAT_STYLE='plain'
 
 # Docker
 alias docker_nuke='docker system prune -a --volumes'
+export DOCKER_BUILDKIT=1
