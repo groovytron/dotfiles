@@ -46,7 +46,7 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype md,markdown,c,cpp,css,html,htmldjango.twig,html.twig,javascript,json,php,scss,twig,ruby,yaml,vim,xml,puml set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
@@ -57,6 +57,13 @@ set splitright
 set pastetoggle=<F2>
 colorscheme gruvbox
 set background=dark
+
+" https://swordandsignals.com/2020/12/13/5-lines-in-vimrc.html
+set hlsearch    " highlight all search results
+" set ignorecase  " do case insensitive search 
+set incsearch   " show incremental search results as you type
+" set number      " display line number
+" set noswapfile  " disable swap file
 
 " Gruvbox
 let g:gruvbox_contrast_dark = 'hard'
@@ -88,7 +95,7 @@ let g:user_emmet_settings = {
     \      'extends' : 'jsx',
     \  },
   \}
-autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig,xml,vue EmmetInstall
+autocmd FileType html,css,js,javascript.jsx,twig,php,markdown,html.twig,htmldjango.twig,htmldjango,xml,vue EmmetInstall
 
 " Code formatters
 autocmd Filetype sh set equalprg=shfmt\ -i\ 4
