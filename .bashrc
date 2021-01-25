@@ -40,3 +40,6 @@ show_groovy_banner
 
 # shellcheck source=/dev/null
 source "$HOME/completions/bash/tmuxinator.bash"
+
+# NVM
+source /usr/share/nvm/init-nvm.sh
