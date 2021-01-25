@@ -24,6 +24,7 @@ ZSH_THEME="agnoster"
 plugins=(
 git
 notify
+nvm
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -51,3 +52,5 @@ autoload -U compinit && compinit
 # Vault
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+complete -o nospace -C /usr/bin/terraform terraform
