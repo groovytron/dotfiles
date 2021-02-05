@@ -45,6 +45,11 @@ ZATHURARC_INSTALL=$(ZATHURA_DIR)/$(ZATHURARC)
 LATEXMKRC=.latexmkrc
 LATEXMKRC_INSTALL=$(HOME)/$(LATEXMKRC)
 
+POETRY_FILE=config.toml
+POETRY_CONFIG=config/poetry/$(POETRY_FILE)
+POETRY_DIR=$(HOME)/.config/pypoetry
+POETRY_INSTALL=$(POETRY_DIR)/$(POETRY_FILE)
+
 GIT_FLAGS=--quiet
 
 help: ##- Show this help
@@ -52,7 +57,7 @@ help: ##- Show this help
 
 .PHONY: install_all
 install_all: ##- Install all the configurations
-install_all: install_bash install_zsh install_tmux install_vim install_zathura install_latexmk
+install_all: install_bash install_zsh install_tmux install_vim install_zathura install_latexmk install_poetry
 
 .PHONY: install_bash
 install_bash: ##- Install Bash configuration
@@ -77,6 +82,10 @@ install_zathura: $(ZATHURARC_INSTALL)
 .PHONY: install_latexmk
 install_latexmk: ##- Install Latexmk configurartion
 install_latexmk: $(LATEXMKRC_INSTALL)
+
+.PHONY: install_poetry
+install_poetry: ##- Install Poetry configurartion
+install_poetry: $(POETRY_INSTALL)
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
@@ -152,3 +161,9 @@ $(LATEXMKRC_INSTALL): $(LATEXMKRC)
 	@echo 'Installing Latexmk configuration...' && \
 		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Latexmk configuration installed.'
+
+$(POETRY_INSTALL): $(POETRY_CONFIG)
+	@echo 'Installing Poetry configuration...' && \
+		mkdir -p $(POETRY_DIR) && \
+		ln -sf $(shell pwd)/$< $@ && \
+		echo 'Poetry configuration installed.'
