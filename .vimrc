@@ -27,6 +27,7 @@ Plugin 'posva/vim-vue' " VueJS
 Plugin 'leafgarland/typescript-vim' " Typescript
 " Fuzzy finder
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " ack, ag, grep, ...
 Plugin 'mileszs/ack.vim'
 " Org-Mode
@@ -176,6 +177,7 @@ let g:fzf_colors =
 
 " ack.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap <C-g> :Ag<CR>
 
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
