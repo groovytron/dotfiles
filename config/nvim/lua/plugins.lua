@@ -39,6 +39,16 @@ return require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  -- EditorConfig support plugin
+  use 'gpanders/editorconfig.nvim'
+
+  -- Autocomplete
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+
   -- -- Simple plugins can be specified as strings
   -- use 'rstacruz/vim-closer'
 
