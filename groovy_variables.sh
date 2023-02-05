@@ -55,3 +55,11 @@ export BAT_STYLE='plain'
 # Docker
 alias docker_nuke='docker system prune -a --volumes'
 export DOCKER_BUILDKIT=1
+
+# User Neovim instead of Vim if Neovim is installed
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+# Local CLIs
+export PATH=${PATH}:${HOME}/.local/bin
