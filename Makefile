@@ -50,6 +50,15 @@ POETRY_CONFIG=config/poetry/$(POETRY_FILE)
 POETRY_DIR=$(HOME)/.config/pypoetry
 POETRY_INSTALL=$(POETRY_DIR)/$(POETRY_FILE)
 
+
+NEOVIM_FILE=init.lua
+NEOVIM_PLUGINS_FILE=plugins.lua
+NEOVIM_CONFIG=config/nvim/$(NEOVIM_FILE)
+NEOVIM_LUA_PLUGINS=config/nvim/lua
+NEOVIM_PLUGINS_CONFIG=$(NEOVIM_LUA_PLUGINS)/$(NEOVIM_PLUGINS_FILE)
+NEOVIM_DIR=$(HOME)/.config/nvim
+NEOVIM_INSTALL=$(NEOVIM_DIR)/$(NEOVIM_FILE)
+
 GIT_FLAGS=--quiet
 
 help: ##- Show this help
@@ -86,6 +95,10 @@ install_latexmk: $(LATEXMKRC_INSTALL)
 .PHONY: install_poetry
 install_poetry: ##- Install Poetry configurartion
 install_poetry: $(POETRY_INSTALL)
+
+.PHONY: install_neovim
+install_neovim: ##- Install Neovim configurartion
+install_neovim: $(NEOVIM_INSTALL)
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
@@ -167,3 +180,11 @@ $(POETRY_INSTALL): $(POETRY_CONFIG)
 		mkdir -p $(POETRY_DIR) && \
 		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Poetry configuration installed.'
+
+$(NEOVIM_INSTALL): $(NEOVIM_CONFIG)
+	@echo 'Installing Neovim configuration...' && \
+		mkdir -p $(NEOVIM_DIR)/lua && \
+		ln -sf $(shell pwd)/$< $@ && \
+		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim && \
+		ln -sf $(shell pwd)/config/nvim/lua/plugins.lua $(NEOVIM_DIR)/lua/plugins.lua && \
+		echo 'Neovim configuration installed.'
