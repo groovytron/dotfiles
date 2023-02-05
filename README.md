@@ -71,6 +71,12 @@ I used to use the [patched fonts for Powerline](https://github.com/powerline/fon
 
 I now use [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) and its font patcher to patch it with the font [Input Mono from Font Bureau](https://input.fontbureau.com/). It makes the fonts usable in Vim with all the icons from Nerd Fonts.
 
+The command I use to generate the font is the following:
+
+```console
+python font-patcher --mono InputMono-Regular.ttf
+```
+
 ## Result
 
 Here is how it looks with zsh, tmux and vim configured with the solarized theme:
