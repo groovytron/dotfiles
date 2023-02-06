@@ -8,12 +8,8 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
 -- OR setup with some options
 require("nvim-tree").setup({
-  open_on_setup = true,
   sort_by = "case_sensitive",
   view = {
     width = 30,
@@ -32,6 +28,13 @@ require("nvim-tree").setup({
     dotfiles = false,
   },
 })
+
+local function open_nvim_tree()
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 -- Enable lualine (editor status bar)
 require('lualine').setup()
