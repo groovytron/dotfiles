@@ -144,12 +144,16 @@ cmp.setup.cmdline(':', {
   })
 })
 
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig').tsserver.setup {
-    capabilities = capabilities
-  }
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require('lspconfig').tsserver.setup {
+  capabilities = capabilities
+}
+
+-- Custom vim commands for UI
+vim.api.nvim_command('set number')
 
 -- Custom key mappings
 vim.keymap.set('n', '<C-n>', '<Cmd>:NvimTreeToggle<CR>')
