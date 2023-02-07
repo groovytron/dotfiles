@@ -1,3 +1,14 @@
+
+vim.api.nvim_exec(
+[[
+call plug#begin()
+
+Plug 'hashivim/vim-terraform'
+
+call plug#end()
+]],
+true)
+
 require('plugins')
 
 
@@ -77,11 +88,31 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- TypeSript
 require('lspconfig').tsserver.setup {
   on_attach =  on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx"},
   cmd = { "typescript-language-server", "--stdio" }
 }
+
+-- Terraform
+require('lspconfig').terraformls.setup{
+  filetypes = { "terraform", "terraform-vars", "hcl" }
+}
+
+require('lspconfig').tflint.setup{}
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+  pattern = { "*.tf", "*.tfvars", "*.hcl" },
+  callback = vim.lsp.buf.format
+})
+
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+
 -- Set up nvim-cmp.
 local cmp = require('cmp')
 
