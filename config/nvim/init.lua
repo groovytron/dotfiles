@@ -236,7 +236,7 @@ vim.api.nvim_command('set number')
 
 -- Custom key mappings
 vim.keymap.set('n', '<C-n>', '<Cmd>:NvimTreeToggle<CR>')
-vim.keymap.set('n', '<C-p>', '<Cmd>:Telescope find_files<CR>')
+vim.keymap.set('n', '<C-p>', '<Cmd>:Telescope find_files hidden=true<CR>')
 vim.keymap.set('n', '<C-t>', '<Cmd>:Telescope live_grep<CR>')
 
 vim.cmd("set background=dark")
