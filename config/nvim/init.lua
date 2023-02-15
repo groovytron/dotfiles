@@ -88,6 +88,10 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- show lsp diagnostics in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 -- TypeSript
 require('lspconfig').tsserver.setup {
   on_attach =  on_attach,
@@ -118,6 +122,7 @@ require('lspconfig').dockerls.setup{}
 
 -- Golang
 local util = require ("lspconfig/util")
+
 require('lspconfig').gopls.setup {
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
@@ -134,8 +139,11 @@ require('lspconfig').gopls.setup {
 
 function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
+
   params.context = {only = {"source.organizeImports"}}
+
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+
   for cid, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do
       if r.edit then
@@ -146,8 +154,12 @@ function go_org_imports(wait_ms)
   end
 end
 
-
 vim.cmd([[autocmd BufWritePre *.go lua go_org_imports()]])
+vim.api.nvim_command('autocmd BufWritePre *.go lua go_org_imports()')
+
+-- Languages specific formatting
+vim.api.nvim_command('autocmd Filetype go,Makefile setlocal tabstop=4')
+vim.api.nvim_command('autocmd Filetype c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab')
 
 -- Set up nvim-cmp.
 local cmp = require('cmp')
