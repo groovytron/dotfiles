@@ -53,12 +53,22 @@ There are some homemade commands, aliases and environement variables definitions
 
 ## Editors
 
+I am now using [`neovim`](https://neovim.io/) because it has a built-in support
+for [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/)
+and makes code editing and debugging easier. Feel free to have a look at
+my configuration in [config/nvim](https://github.com/groovytron/dotfiles/tree/master/config/nvim)
+to check which plugins I am using and how they are configured.
+
+I used to use `gvim` in the past for a few years with the following config:
+
 - [`vim` (the `gvim` package with GTK/X11 support)](http://www.vim.org/) with some plugins (check the [.vimrc](https://github.com/groovytron/dotfiles/blob/master/.vimrc))
 - [`vim-airline`](https://github.com/vim-airline/vim-airline) to style vim's status bar
 
 ## CLI Tools
 
-- [`ag`](https://github.com/ggreer/the_silver_searcher) as a more user-friendly alternative to `grep`
+- [`ag`](https://github.com/ggreer/the_silver_searcher) and
+  [`ripgrep`](https://github.com/BurntSushi/ripgrep) as more user-friendly and
+  faster alternatives to `grep`
 - [`bat`](https://github.com/sharkdp/bat) as a replacement for `cat`
 - [`glow`](https://github.com/charmbracelet/glow) to read Markdown files in the terminal
 - [`fzf`](https://github.com/junegunn/fzf) as a command-line fuzzy finder an pluggable to vim
