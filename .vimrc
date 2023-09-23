@@ -38,6 +38,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ryanoasis/vim-devicons'
 " Ansible plugin (also improves yaml support)
 Plugin 'pearofducks/ansible-vim'
+" Refactoring extension
+Plugin 'tpope/vim-abolish'
 call vundle#end()
 
 filetype plugin indent on " Enable filetype plugin again
@@ -47,7 +49,9 @@ set encoding=utf-8
 set number " Display line number
 set ts=4 sts=4 sw=4 expandtab " tab = 4 spaces for every file type
 " tab = 2 spaces for web programming languages, JSON, YAML and Markdown
-autocmd Filetype c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab
+autocmd Filetype c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,nomad,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab
+" use tab for some other file types
+autocmd Filetype Makefile,go set noexpandtab
 " Display whitespaces with specific characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list " Display white space characters
@@ -183,6 +187,9 @@ nnoremap <C-g> :Ag<CR>
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
+" Pattern search hilighting
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+
 " EditorConfig
 " Ensure EditorConfig plugin works well with vim-fugitive plugin and
 " avoid loading EditorConfig for any remote files over ssh
@@ -215,9 +222,10 @@ au BufNewFile,BufRead /dev/shm/gopass.* setlocal noswapfile nobackup noundofile
 set t_ut=
 
 " Nasty GUI hacks
+set guifont=InputMono\ Nerd\ Font\ Mono\ 12
 if has("gui_running")
-  if has("gui_gtk2") || has("gui_gtk3")
-    set guifont=Input\ Mono\ Nerd\ Font\ 12
+  if has("gui_gtk2") || has("gui_gtk3") || has("nvim")
+    set guifont=InputMono\ Nerd\ Font\ Mono\ 12
   elseif has("gui_photon")
     set guifont=Courier\ New:s11
   elseif has("gui_kde")
