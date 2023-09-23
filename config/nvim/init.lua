@@ -31,7 +31,7 @@ require("nvim-tree").setup({
     },
   },
   renderer = {
-    group_empty = true,
+    group_empty = false,
     highlight_git = false,
   },
   git = { enable = false },
@@ -99,6 +99,32 @@ require('lspconfig').tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" }
 }
 
+-- Vue language server (volar)
+require 'lspconfig'.volar.setup {
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+} 
+
+-- Emmet
+require('lspconfig').emmet_language_server.setup({
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+  init_options = {
+    --- @type table<string, any> https://docs.emmet.io/customization/preferences/
+    preferences = {},
+    --- @type "always" | "never" defaults to `"always"`
+    showexpandedabbreviation = "always",
+    --- @type boolean defaults to `true`
+    showabbreviationsuggestions = true,
+    --- @type boolean defaults to `false`
+    showsuggestionsassnippets = false,
+    --- @type table<string, any> https://docs.emmet.io/customization/syntax-profiles/
+    syntaxprofiles = {},
+    --- @type table<string, string> https://docs.emmet.io/customization/snippets/#variables
+    variables = {},
+    --- @type string[]
+    excludelanguages = {},
+  },
+})
+
 -- Terraform
 require('lspconfig').terraformls.setup{
   filetypes = { "terraform", "terraform-vars", "hcl" }
@@ -136,6 +162,9 @@ require('lspconfig').gopls.setup {
     },
   },
 }
+
+-- Python
+require('lspconfig').jedi_language_server.setup{}
 
 function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
