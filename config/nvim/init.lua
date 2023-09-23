@@ -1,14 +1,14 @@
 
-vim.api.nvim_exec(
-[[
-call plug#begin()
-
-Plug 'hashivim/vim-terraform'
-
-call plug#end()
-]],
-true)
-
+-- vim.api.nvim_exec(
+-- [[
+-- call plug#begin()
+-- 
+-- Plug 'hashivim/vim-terraform'
+-- 
+-- call plug#end()
+-- ]],
+-- true)
+-- 
 require('plugins')
 
 
