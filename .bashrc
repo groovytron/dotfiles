@@ -26,7 +26,8 @@ alias ls='ls $LS_OPTIONS'
 shopt -s checkwinsize # Fix bash resize issue
 
 # Terminal notifications
-source /etc/profile.d/undistract-me.sh
+UNDISTRACT_ME=/usr/share/undistract-me/undistract-me.sh
+[[ -f "$UNDISTRACT_ME" ]] && source $UNDISTRACT_ME
 
 # Import functions
 FUNK=$HOME/groovy_functions.sh
@@ -39,7 +40,14 @@ load_groovy_variables
 show_groovy_banner
 
 # shellcheck source=/dev/null
-source "$HOME/completions/bash/tmuxinator.bash"
+TMUXINATOR_COMPLETIONS = "$HOME/completions/bash/tmuxinator.bash"
+
+[[ -f "$TMUXINATOR_COMPLETIONS" ]] && source "$TMUXINATOR_COMPLETIONS"
 
 # NVM
-source /usr/share/nvm/init-nvm.sh
+# [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+# 
+# export NVM_DIR="$HOME/.nvm"
+# 
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
