@@ -23,8 +23,8 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 git
-notify
-nvm
+# notify
+# nvm
 )
 
 source "$ZSH/oh-my-zsh.sh"
@@ -45,12 +45,17 @@ source "$HOME/completions/zsh/tmuxinator.zsh"
 # gopass zsh completion fix (https://github.com/gopasspw/gopass/issues/585#issuecomment-355416844)
 
 # shellcheck source=/dev/null
-source "$HOME/completions/zsh/gopass.zsh"
-compdef _gopass gopass
-autoload -U compinit && compinit
+# source "$HOME/completions/zsh/gopass.zsh"
+# compdef _gopass gopass
+# autoload -U compinit && compinit
 
 # Vault
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/vault vault
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/bin/vault vault
 
-complete -o nospace -C /usr/bin/terraform terraform
+# Terraform
+# complete -o nospace -C /usr/bin/terraform terraform
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
