@@ -185,6 +185,15 @@ $(NEOVIM_INSTALL): $(NEOVIM_CONFIG)
 	@echo 'Installing Neovim configuration...' && \
 		mkdir -p $(NEOVIM_DIR)/lua && \
 		ln -sf $(shell pwd)/$< $@ && \
-		git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim && \
+		([ -e '~/.local/share/nvim/site/pack/packer/start/packer.nvim' ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo 0) && \
 		ln -sf $(shell pwd)/config/nvim/lua/plugins.lua $(NEOVIM_DIR)/lua/plugins.lua && \
 		echo 'Neovim configuration installed.'
+
+install_terminal_theme:
+	ln -sf $(shell pwd)/.Xresources.gruvbox $(HOME)/.Xresources
+
+install_terminal_font:
+	([ -e 'Input-Font.zip' ] && curl https://input.djr.com/build/?fontSelection=whole&a=0&g=0&i=0&l=0&zero=0&asterisk=0&braces=0&preset=default&line-height=1.2&accept=I+do&email= -O Input-Font.zip) || echo 0 && \
+	unzip Input-Font.zip && \
+	([ -e 'font-patcher' ] && wget https://github.com/ryanoasis/nerd-fonts/raw/master/font-patcher -O  font-patcher) || echo 0 && \
+	python font-patcher --mono Input_Fonts/InputMono/InputMono/InputMono-Regular.ttf
