@@ -17,9 +17,6 @@ urxvt*boldMode: on
 urxvt*font: xft:InputMono Nerd Font Mono:minspace:size=12:rgba=rgba
 urxvt*scrollBar: False
 
-! transparency settings
-urxvt*depth: 32
-
 ! URLs highlighting
 urxvt.perl-ext: default,matcher
 
@@ -74,3 +71,7 @@ urxvt.perl-ext: default,matcher
 *.colorBD:     #978771
 !*.colorIT:
 !*.colorUL:
+
+! transparency settings
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/c800
