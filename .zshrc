@@ -58,4 +58,5 @@ source "$HOME/completions/zsh/tmuxinator.zsh"
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
+source /usr/share/nvm/init-nvm.sh
