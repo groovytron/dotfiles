@@ -1,3 +1,5 @@
+#compdef _tmuxinator tmuxinator
+
 _tmuxinator() {
   local commands projects
   commands=(${(f)"$(tmuxinator commands zsh)"})
@@ -9,7 +11,7 @@ _tmuxinator() {
       'projects:: _describe -t projects "tmuxinator projects" projects'
   elif (( CURRENT == 3)); then
     case $words[2] in
-      copy|debug|delete|open|start)
+      copy|cp|c|debug|delete|rm|open|o|start|s|edit|e)
         _arguments '*:projects:($projects)'
       ;;
     esac
@@ -18,8 +20,6 @@ _tmuxinator() {
   return
 }
 
-compdef _tmuxinator tmuxinator mux
-alias mux="tmuxinator"
 
 # Local Variables:
 # mode: Shell-Script
