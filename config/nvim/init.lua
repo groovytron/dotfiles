@@ -110,7 +110,7 @@ require'lspconfig'.ts_ls.setup{
 -- Emmet
 require('lspconfig').emmet_language_server.setup({
   capabilities = capabilities,
-  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "htmldjango", "php" },
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "htmldjango", "php", "blade" },
   init_options = {
     --- @type table<string, any> https://docs.emmet.io/customization/preferences/
     preferences = {},
