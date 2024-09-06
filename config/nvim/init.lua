@@ -87,21 +87,30 @@ local lsp_flags = {
 vim.o.updatetime = 250
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
--- TypeSript
-require('lspconfig').tsserver.setup {
-  on_attach =  on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx"},
-  cmd = { "typescript-language-server", "--stdio" }
+-- TypeScript
+-- require('lspconfig').ts_ls.setup {
+--   on_attach =  on_attach,
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx"},
+--   cmd = { "typescript-language-server", "--stdio" }
+-- }
+
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.ts_ls.setup{
+  capabilities = capabilities,
 }
 
 -- Vue language server (volar)
-require 'lspconfig'.volar.setup {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
-} 
+-- require 'lspconfig'.volar.setup {
+--   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+-- } 
 
 -- Emmet
 require('lspconfig').emmet_language_server.setup({
-  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+  capabilities = capabilities,
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "htmldjango", "php" },
   init_options = {
     --- @type table<string, any> https://docs.emmet.io/customization/preferences/
     preferences = {},
@@ -120,12 +129,20 @@ require('lspconfig').emmet_language_server.setup({
   },
 })
 
+-- CSS
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
+
 -- Terraform
 require('lspconfig').terraformls.setup{
+  capabilities = capabilities,
   filetypes = { "terraform", "terraform-vars", "hcl" }
 }
 
-require('lspconfig').tflint.setup{}
+require('lspconfig').tflint.setup{
+  capabilities = capabilities,
+}
 
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = { "*.tf", "*.tfvars", "*.hcl" },
@@ -139,12 +156,15 @@ vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
 vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
 
 -- Docker
-require('lspconfig').dockerls.setup{}
+require('lspconfig').dockerls.setup{
+  capabilities = capabilities,
+}
 
 -- Golang
 local util = require ("lspconfig/util")
 
 require('lspconfig').gopls.setup {
+  capabilities = capabilities,
   cmd = {"gopls", "serve"},
   filetypes = {"go", "gomod"},
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -158,8 +178,13 @@ require('lspconfig').gopls.setup {
   },
 }
 
+vim.cmd([[autocmd BufWritePre *.go lua go_org_imports()]])
+vim.api.nvim_command('autocmd BufWritePre *.go lua go_org_imports()')
+
 -- Python
-require('lspconfig').jedi_language_server.setup{}
+require('lspconfig').jedi_language_server.setup{
+  capabilities = capabilities,
+}
 
 function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
@@ -178,8 +203,10 @@ function go_org_imports(wait_ms)
   end
 end
 
-vim.cmd([[autocmd BufWritePre *.go lua go_org_imports()]])
-vim.api.nvim_command('autocmd BufWritePre *.go lua go_org_imports()')
+-- PHP
+require'lspconfig'.phpactor.setup{
+  capabilities = capabilities,
+}
 
 -- Languages specific formatting
 vim.api.nvim_command('autocmd Filetype go,Makefile setlocal tabstop=4')
@@ -246,14 +273,6 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig').tsserver.setup {
-  capabilities = capabilities
-}
 
 -- Custom vim commands for UI
 vim.api.nvim_command('set number')

@@ -43,7 +43,6 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
   -- EditorConfig support plugin
@@ -56,4 +55,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/vim-vsnip'
+
+  -- Laravel/Blade
+  use 'EmranMR/tree-sitter-blade'
 end)
