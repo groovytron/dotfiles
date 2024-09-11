@@ -58,4 +58,10 @@ return require('packer').startup(function(use)
 
   -- Laravel/Blade
   use 'EmranMR/tree-sitter-blade'
+
+  -- PHP Code Sniffer
+  use 'praem90/nvim-phpcsf'
+
+  -- Python
+  use 'dense-analysis/ale'
 end)

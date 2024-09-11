@@ -103,9 +103,9 @@ require'lspconfig'.ts_ls.setup{
 }
 
 -- Vue language server (volar)
--- require 'lspconfig'.volar.setup {
---   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
--- } 
+require 'lspconfig'.volar.setup {
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+}
 
 -- Emmet
 require('lspconfig').emmet_language_server.setup({
@@ -178,14 +178,6 @@ require('lspconfig').gopls.setup {
   },
 }
 
-vim.cmd([[autocmd BufWritePre *.go lua go_org_imports()]])
-vim.api.nvim_command('autocmd BufWritePre *.go lua go_org_imports()')
-
--- Python
-require('lspconfig').jedi_language_server.setup{
-  capabilities = capabilities,
-}
-
 function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
 
@@ -203,10 +195,32 @@ function go_org_imports(wait_ms)
   end
 end
 
+vim.cmd([[autocmd BufWritePre *.go lua go_org_imports()]])
+vim.api.nvim_command('autocmd BufWritePre *.go lua go_org_imports()')
+
+-- Python
+require('lspconfig').jedi_language_server.setup{
+  capabilities = capabilities,
+}
+
+require'lspconfig'.pylsp.setup{
+  capabilities = capabilities,
+}
+
 -- PHP
 require'lspconfig'.phpactor.setup{
   capabilities = capabilities,
 }
+
+-- PHP: Inspect and format on save
+require("phpcs").setup({
+  phpcs = "phpcs",
+  phpcbf = "phpcbf",
+  standard = "PSR12"
+})
+
+vim.api.nvim_command('autocmd BufWritePost,BufReadPost,InsertLeave *.php lua require("phpcs").cs()')
+vim.api.nvim_command('autocmd BufWritePost *.php lua require("phpcs").cbf()')
 
 -- Languages specific formatting
 vim.api.nvim_command('autocmd Filetype go,Makefile setlocal tabstop=4')
