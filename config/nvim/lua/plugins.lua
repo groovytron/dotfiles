@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Telescope args extension
+  use 'nvim-telescope/telescope-live-grep-args.nvim'
+
   -- Nvim File Explorer
   use {
     'nvim-tree/nvim-tree.lua',

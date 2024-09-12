@@ -345,8 +345,11 @@ vim.api.nvim_command('set number')
 
 -- Custom key mappings
 vim.keymap.set('n', '<C-n>', '<Cmd>:NvimTreeToggle<CR>')
+
+-- Telescope
 vim.keymap.set('n', '<C-p>', '<Cmd>:Telescope find_files hidden=true<CR>')
-vim.keymap.set('n', '<C-t>', '<Cmd>:Telescope live_grep<CR>')
+-- vim.keymap.set('n', '<C-t>', '<Cmd>:Telescope live_grep<CR>')
+vim.keymap.set('n', '<C-t>', '<Cmd>:lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>')
 
 vim.cmd("set background=dark")
 vim.cmd("let g:gruvbox_material_better_performance = 1")
