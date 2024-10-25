@@ -40,6 +40,11 @@ clip_file() {
     xclip -selection clipboard < "$1"
 }
 
+# Backup with Back In Time
+backup_home() {
+	backintime --config ~/.config/backintime/config --profile 'Main profile' backup
+}
+
 function ssh_me() {
     local SSH_ME_USAGE='Usage: ssh_me [USERNAME] [HOSTNAME or IP ADDRESS] [PORT]'
 
