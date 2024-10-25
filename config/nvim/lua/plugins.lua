@@ -5,6 +5,20 @@ return require('packer').startup(function(use)
   -- Gruvbox
   use 'sainnhe/gruvbox-material'
 
+  -- Solarized
+  use {
+    'maxmx03/solarized.nvim',
+    config = function()
+      vim.o.background = 'dark'
+      ---@type solarized
+      local solarized = require('solarized')
+      vim.o.termguicolors = true
+      vim.o.background = 'light'
+      solarized.setup({})
+      vim.cmd.colorscheme 'solarized'
+    end
+  }
+
   -- Lualine (editor status bar)
   use {
     'nvim-lualine/lualine.nvim',
