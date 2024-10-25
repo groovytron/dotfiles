@@ -36,7 +36,7 @@ show_groovy_banner
     && notify_when_long_running_commands_finish_install
 
 # shellcheck source=/dev/null
-source "$HOME/completions/zsh/tmuxinator.zsh"
+[[ -f "$HOME/completions/zsh/tmuxinator.zsh" ]] && source "$HOME/completions/zsh/tmuxinator.zsh"
 
 # Fix home and end keybinding issue
 # bindkey "${terminfo[khome]}" beginning-of-line
@@ -59,4 +59,4 @@ source "$HOME/completions/zsh/tmuxinator.zsh"
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
-source /usr/share/nvm/init-nvm.sh
+[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
