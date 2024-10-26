@@ -164,13 +164,25 @@ vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {f
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require'lspconfig'.ts_ls.setup{
+-- JavaScript
+require('lspconfig').eslint.setup{
+  capabilities = capabilities,
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}
+
+-- TypeScript
+require('lspconfig').ts_ls.setup{
   capabilities = capabilities,
 }
 
 -- Vue language server (volar)
-require 'lspconfig'.volar.setup {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+require('lspconfig').volar.setup{
+  capabilities = capabilities,
 }
 
 -- Emmet
