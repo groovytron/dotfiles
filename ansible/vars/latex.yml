@@ -1,0 +1,13 @@
+---
+packages:
+  official:
+    - texlive-basic
+    - texlive-bin
+    - texlive-binextra
+    - texlive-fontsextra
+    - texlive-fontsrecommended
+    - texlive-latex
+    - texlive-latexextra
+    - texlive-latexrecommended
+    - texlive-pictures
+    - texlive-xetex

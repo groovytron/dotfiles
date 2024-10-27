@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/nodejs.yml
+    name: nodejs
+- name: Install NodeJS toolchain
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: NodeJS toolchain
+    packages: "{{ nodejs.packages }}"

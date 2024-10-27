@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/terminal.yml
+    name: terminal
+- name: Install terminal tools
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: terminal tools
+    packages: "{{ terminal.packages }}"

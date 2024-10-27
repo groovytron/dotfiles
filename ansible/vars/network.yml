@@ -1,0 +1,11 @@
+---
+packages:
+  official:
+    - bind
+    - dog
+    - net-tools
+    - networkmanager-openvpn
+    - openvpn
+    - traceroute
+  aur:
+    - proton-vpn-gtk-app

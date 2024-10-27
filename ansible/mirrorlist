@@ -1,0 +1,64 @@
+
+
+## Switzerland
+Server = http://mirror.puzzle.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = http://ch.mirrors.cicku.me/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://ch.mirrors.cicku.me/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = http://mirror.init7.net/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://mirror.worldhotspot.org/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://mirror.puzzle.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = http://pkg.adfinis-on-exoscale.ch/archlinux-pkgbuild/$repo/os/$arch
+
+
+## Switzerland
+Server = http://mirror.metanet.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://mirror.init7.net/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://mirror.metanet.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = http://pkg.adfinis.com/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = http://pkg.adfinis-on-exoscale.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://pkg.adfinis-on-exoscale.ch/archlinux-pkgbuild/$repo/os/$arch
+
+
+## Switzerland
+Server = https://pkg.adfinis-on-exoscale.ch/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://pkg.adfinis.com/archlinux/$repo/os/$arch
+
+
+## Switzerland
+Server = https://mirror.ungleich.ch/mirror/packages/archlinux/$repo/os/$arch

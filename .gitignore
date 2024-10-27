@@ -482,3 +482,11 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/osx,vim,linux,windows,notepadpp,sublimetext,visualstudio
 
 !.gitignore
+
+# Created by https://www.toptal.com/developers/gitignore/api/ansible
+# Edit at https://www.toptal.com/developers/gitignore?templates=ansible
+
+### Ansible ###
+*.retry
+
+# End of https://www.toptal.com/developers/gitignore/api/ansible

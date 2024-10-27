@@ -1,0 +1,12 @@
+---
+packages:
+  official:
+    - bat
+    - fzf
+    - glow
+    - lolcat
+    - tmux
+  aur:
+    - tmux-plugin-manager
+    - tmuxinator
+    - undistract-me

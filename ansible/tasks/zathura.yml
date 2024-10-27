@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/zathura.yml
+    name: zathura
+- name: Install Zathura
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: Zathura
+    packages: "{{ zathura.packages }}"

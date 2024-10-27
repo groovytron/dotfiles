@@ -1,0 +1,7 @@
+---
+packages:
+  official:
+    - chromium
+    - firefox
+  aur:
+    - google-chrome

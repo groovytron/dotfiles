@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Setup the Groovy Machine
+  hosts: instance
+  gather_facts: true
+  vars:
+    unpriviledged_user: dev
+    aur_helper: yay
+  tasks:
+    - name: Include main tasks
+      ansible.builtin.import_tasks:
+        file: tasks/main.yml

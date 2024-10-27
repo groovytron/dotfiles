@@ -1,0 +1,17 @@
+# vi: ft=yaml.ansible
+---
+- name: Install crun, jack2
+  community.general.pacman:
+    name:
+      - crun
+      - jack2
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/containers.yml
+    name: containers
+- name: Install containers tools
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: containers
+    packages: "{{ containers.packages }}"

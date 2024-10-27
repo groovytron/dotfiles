@@ -1,0 +1,8 @@
+---
+packages:
+  aur:
+    - phpstorm
+    - phpstorm-jre
+    - postman-bin
+    - python-taxi
+    - python-taxi-zebra

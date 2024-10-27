@@ -1,0 +1,28 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/grep.yml
+    name: grep
+- name: Install grep tools
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: grep tools
+    packages: "{{ grep.packages }}"
+# - name: Install grep tools from official repository
+#   community.general.pacman:
+#     name:
+#       - ripgrep
+#       - the_silver_searcher
+# - name: Install grep tools from AUR
+#   kewlfft.aur.aur:
+#     name:
+#       - dockerfile-language-server
+#       - emmet-language-server
+#       - phpactor
+#       - terraform-ls
+#       - vscode-langservers-extracted
+#     use: "{{ aur_helper }}"
+#   become: true
+#   become_user: "{{ unpriviledged_user }}"

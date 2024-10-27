@@ -1,0 +1,41 @@
+# vi: ft=yaml.ansible
+---
+- name: Install containers tools
+  ansible.builtin.import_tasks:
+    file: tasks/containers.yml
+- name: Install grep tools
+  ansible.builtin.import_tasks:
+    file: tasks/grep.yml
+- name: Install IaC (Infrastructure as Code) tools
+  ansible.builtin.import_tasks:
+    file: tasks/iac.yml
+- name: Install LaTex tools
+  ansible.builtin.import_tasks:
+    file: tasks/latex.yml
+- name: Intall Neovim and LSPs
+  ansible.builtin.import_tasks:
+    file: tasks/neovim.yml
+- name: Install security tools
+  ansible.builtin.import_tasks:
+    file: tasks/security.yml
+- name: Install terminal tools
+  ansible.builtin.import_tasks:
+    file: tasks/terminal.yml
+- name: Install Zathura
+  ansible.builtin.import_tasks:
+    file: tasks/zathura.yml
+- name: Install network tools
+  ansible.builtin.import_tasks:
+    file: tasks/network.yml
+- name: Install Liip tools
+  ansible.builtin.import_tasks:
+    file: tasks/liip.yml
+- name: Install web tools
+  ansible.builtin.import_tasks:
+    file: tasks/web.yml
+- name: Install NodeJS toolchain
+  ansible.builtin.import_tasks:
+    file: tasks/nodejs.yml
+- name: Install Python toolchain
+  ansible.builtin.import_tasks:
+    file: tasks/python.yml

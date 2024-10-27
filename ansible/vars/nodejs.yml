@@ -1,0 +1,7 @@
+---
+packages:
+  official:
+    - nodejs
+    - npm
+  aur:
+    - nvm

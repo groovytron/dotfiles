@@ -1,0 +1,14 @@
+---
+- name: "Install {{ topic }} from official repository"
+  when: packages.official is defined and
+        (packages.official | default([])) | length > 0
+  community.general.pacman:
+    name: "{{ packages.official }}"
+- name: "Install {{ topic }} from AUR"
+  when: packages.aur is defined and
+        (packages.aur | default([])) | length > 0
+  kewlfft.aur.aur:
+    name: "{{ packages.aur }}"
+    use: "{{ aur_helper }}"
+  become: true
+  become_user: "{{ unpriviledged_user }}"

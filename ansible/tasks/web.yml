@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/web.yml
+    name: web
+- name: Install web tools (browsers)
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: Web tools
+    packages: "{{ web.packages }}"

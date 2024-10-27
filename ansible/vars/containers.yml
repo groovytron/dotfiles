@@ -1,0 +1,14 @@
+---
+packages:
+  official:
+    - buildah
+    - dnsmasq
+    - docker
+    - docker-compose
+    # - iptables-nft # Conflicts with iptables
+    - kubectl
+    - libvirt
+    - minikube
+    - podman
+    - podman-compose
+    - qemu-desktop

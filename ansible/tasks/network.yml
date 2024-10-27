@@ -1,0 +1,23 @@
+# vi: ft=yaml.ansible
+---
+- name: Install network dependencies
+  community.general.pacman:
+    name:
+      - gnome-keyring # Required by proton-vpn-gtk-app
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/network.yml
+    name: network
+- name: Install network tools
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: network tools
+    packages: "{{ network.packages }}"
+# - name: Install network tools from AUR
+#   kewlfft.aur.aur:
+#     name:
+#       - proton-vpn-gtk-app
+#     use: "{{ aur_helper }}"
+#   become: true
+#   become_user: "{{ unpriviledged_user }}"

@@ -1,0 +1,7 @@
+---
+packages:
+  official:
+    - zathura
+    - zathura-cb
+    - zathura-pdf-mupdf
+    - zathura-ps

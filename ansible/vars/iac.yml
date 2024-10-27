@@ -1,0 +1,6 @@
+---
+packages:
+  official:
+    - ansible
+    - ansible-core
+    - opentofu

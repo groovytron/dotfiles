@@ -13,6 +13,12 @@ To install one or many configurations, do the following:
 
 The `Makefile` mainly creates symbolic links but **it will overwrite you current configuration files so have a look at the `Makefile` and backup your configuration files before running something if you are not sure of what you are doing.**
 
+As I was tired to setup and reinstall everything by hand when
+I buy a new machine, I wrote [an Ansible playbook](./ansible/playbook.yml) to
+automate the tedious installation and setup tasks. It's even tested with
+[`molecule`](https://ansible.readthedocs.io/projects/molecule/) combined with
+[`podman`](https://podman.io/) !
+
 I use the below tools.
 
 ## Shells

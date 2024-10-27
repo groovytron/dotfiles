@@ -1,0 +1,12 @@
+# vi: ft=yaml.ansible
+---
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/python.yml
+    name: python
+- name: Install Python toolchain
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: Python toolchain
+    packages: "{{ python.packages }}"

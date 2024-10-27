@@ -1,0 +1,7 @@
+---
+driver:
+  name: podman
+platforms:
+  - name: instance
+    image: localhost/archlinux-container
+    pre_build_image: true
