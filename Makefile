@@ -51,15 +51,18 @@ POETRY_DIR=$(HOME)/.config/pypoetry
 POETRY_INSTALL=$(POETRY_DIR)/$(POETRY_FILE)
 
 
-NEOVIM_FILE=init.lua
-NEOVIM_PLUGINS_FILE=plugins.lua
-NEOVIM_CONFIG=config/nvim/$(NEOVIM_FILE)
-NEOVIM_LUA_PLUGINS=config/nvim/lua
-NEOVIM_PLUGINS_CONFIG=$(NEOVIM_LUA_PLUGINS)/$(NEOVIM_PLUGINS_FILE)
+NEOVIM_CONFIG=config/nvim
+# NEOVIM_FILE=init.lua
+# NEOVIM_PLUGINS_FILE=plugins.lua
+# NEOVIM_CONFIG=config/nvim/$(NEOVIM_FILE)
+# NEOVIM_LUA_PLUGINS=config/nvim/lua
+# NEOVIM_PLUGINS_CONFIG=$(NEOVIM_LUA_PLUGINS)/$(NEOVIM_PLUGINS_FILE)
 NEOVIM_DIR=$(HOME)/.config/nvim
-NEOVIM_INSTALL=$(NEOVIM_DIR)/$(NEOVIM_FILE)
+NEOVIM_INSTALL=$(NEOVIM_DIR)
 
 GIT_FLAGS=--quiet
+
+BARE_INSTALL=$(HOME)/.config/autostart/bare.desktop
 
 help: ##- Show this help
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/: /; s/#\{2\}- *//' $(MAKEFILE_LIST)
@@ -99,6 +102,9 @@ install_poetry: $(POETRY_INSTALL)
 .PHONY: install_neovim
 install_neovim: ##- Install Neovim configurartion
 install_neovim: $(NEOVIM_INSTALL)
+
+$(NEOVIM_DIR):
+	mkdir -p $@
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
@@ -181,13 +187,11 @@ $(POETRY_INSTALL): $(POETRY_CONFIG)
 		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Poetry configuration installed.'
 
-$(NEOVIM_INSTALL): $(NEOVIM_CONFIG)
+$(NEOVIM_INSTALL):
 	@echo 'Installing Neovim configuration...' && \
-		mkdir -p $(NEOVIM_DIR)/lua && \
-		ln -sf $(shell pwd)/$< $@ && \
-		([ -e '~/.local/share/nvim/site/pack/packer/start/packer.nvim' ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo 0) && \
-		ln -sf $(shell pwd)/config/nvim/lua/plugins.lua $(NEOVIM_DIR)/lua/plugins.lua && \
-		echo 'Neovim configuration installed.'
+	([ -e '~/.local/share/nvim/site/pack/packer/start/packer.nvim' ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo 0) && \
+	ln -sf $(shell pwd)/$(NEOVIM_CONFIG) $(NEOVIM_DIR) && \
+	echo 'Neovim configuration installed.'
 
 install_terminal_theme:
 	ln -sf $(shell pwd)/.Xresources.gruvbox $(HOME)/.Xresources
@@ -197,3 +201,10 @@ install_terminal_font:
 	unzip Input-Font.zip && \
 	([ -e 'font-patcher' ] && wget https://github.com/ryanoasis/nerd-fonts/raw/master/font-patcher -O  font-patcher) || echo 0 && \
 	python font-patcher --mono Input_Fonts/InputMono/InputMono/InputMono-Regular.ttf
+
+.PHONY: install_bare
+install_bare: $(BARE_INSTALL)
+
+$(BARE_INSTALL):
+	mkdir -p $(HOME)/.config/autostart
+	ln -sf $(shell pwd)/config/autostart/bare.desktop $@
