@@ -13,5 +13,5 @@
   ansible.builtin.import_tasks:
     file: tasks/install_packages.yaml
   vars:
-    topic: containers
+    topic: containers orchestration tools
     packages: "{{ containers.packages }}"

@@ -1,5 +1,22 @@
 # vi: ft=yaml.ansible
 ---
+- name: Allow 'wheel' group to have passwordless sudo
+  ansible.builtin.lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    validate: 'visudo -cf %s'
+- name: "Install git and go from official repository (needed for yay)"
+  community.general.pacman:
+    name:
+      - git
+      - go
+- name: "Install yay from AUR"
+  kewlfft.aur.aur:
+    name: yay
+  become: true
+  become_user: "{{ unpriviledged_user }}"
 - name: Install containers tools
   ansible.builtin.import_tasks:
     file: tasks/containers.yml
