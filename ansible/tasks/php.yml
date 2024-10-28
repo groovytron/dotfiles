@@ -2,11 +2,11 @@
 ---
 - name: Import variables
   ansible.builtin.include_vars:
-    file: vars/grep.yml
-    name: grep
-- name: Install grep tools
+    file: vars/php.yml
+    name: php
+- name: Install PHP toolchain
   ansible.builtin.import_tasks:
     file: tasks/install_packages.yaml
   vars:
-    topic: grep tools
-    packages: "{{ grep.packages }}"
+    topic: PHP toolchain
+    packages: "{{ php.packages }}"

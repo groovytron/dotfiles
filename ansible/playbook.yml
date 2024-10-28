@@ -4,7 +4,7 @@
   hosts: instance
   gather_facts: true
   vars:
-    unpriviledged_user: dev
+    unprivileged_user: dev
     aur_helper: yay
   tasks:
     - name: Include main tasks

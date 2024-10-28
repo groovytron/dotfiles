@@ -11,4 +11,4 @@
     name: "{{ packages.aur }}"
     use: "{{ aur_helper }}"
   become: true
-  become_user: "{{ unpriviledged_user }}"
+  become_user: "{{ unprivileged_user }}"

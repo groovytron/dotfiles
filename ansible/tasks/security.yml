@@ -10,15 +10,3 @@
   vars:
     topic: security tools
     packages: "{{ security.packages }}"
-# - name: Install security tools from official repository
-#   community.general.pacman:
-#     name:
-#       - gopass
-#       - gopass-jsonapi
-# - name: Install security tools from AUR
-#   kewlfft.aur.aur:
-#     name:
-#       - proton-vpn-gtk-appA
-#     use: "{{ aur_helper }}"
-#   become: true
-#   become_user: "{{ unpriviledged_user }}"

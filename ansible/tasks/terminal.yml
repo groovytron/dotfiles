@@ -10,3 +10,7 @@
   vars:
     topic: terminal tools
     packages: "{{ terminal.packages }}"
+- name: Set ZSH as default shell for unprivileged user
+  ansible.builtin.user:
+    shell: /usr/bin/zsh
+    user: "{{ unprivileged_user }}"

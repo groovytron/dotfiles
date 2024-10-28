@@ -2,11 +2,11 @@
 ---
 - name: Import variables
   ansible.builtin.include_vars:
-    file: vars/grep.yml
-    name: grep
-- name: Install grep tools
+    file: vars/tuxedo.yml
+    name: tuxedo
+- name: Install Tuxedo utilities
   ansible.builtin.import_tasks:
     file: tasks/install_packages.yaml
   vars:
-    topic: grep tools
-    packages: "{{ grep.packages }}"
+    topic: Tuxedo apps and drivers
+    packages: "{{ tuxedo.packages }}"

@@ -16,7 +16,7 @@
   kewlfft.aur.aur:
     name: yay
   become: true
-  become_user: "{{ unpriviledged_user }}"
+  become_user: "{{ unprivileged_user }}"
 - name: Install containers tools
   ansible.builtin.import_tasks:
     file: tasks/containers.yml
@@ -56,6 +56,15 @@
 - name: Install Python toolchain
   ansible.builtin.import_tasks:
     file: tasks/python.yml
+- name: Install PHP toolchain
+  ansible.builtin.import_tasks:
+    file: tasks/php.yml
 - name: Install backup tools
   ansible.builtin.import_tasks:
     file: tasks/backup.yml
+- name: Install desktop utilities
+  ansible.builtin.import_tasks:
+    file: tasks/desktop.yml
+- name: Install Tuxedo utilities
+  ansible.builtin.import_tasks:
+    file: tasks/tuxedo.yml

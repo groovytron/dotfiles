@@ -10,24 +10,3 @@
   vars:
     topic: LaTex tools
     packages: "{{ latex.packages }}"
-# - name: Install LaTex tools from official repository
-#   community.general.pacman:
-#     name:
-#       - texlive-basic
-#       - texlive-bin
-#       - texlive-binextra
-#       - texlive-fontsextra
-#       - texlive-fontsrecommended
-#       - texlive-latex
-#       - texlive-latexextra
-#       - texlive-latexrecommended
-#       - texlive-pictures
-#       - texlive-xetex
-# - name: Install terminal tools from AUR
-#   kewlfft.aur.aur:
-#     name:
-#       - tmux-plugin-manager
-#       - tmuxinator
-#     use: "{{ aur_helper }}"
-#   become: true
-#   become_user: "{{ unpriviledged_user }}"

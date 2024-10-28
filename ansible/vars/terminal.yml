@@ -1,12 +1,21 @@
 ---
 packages:
   official:
+    - bash-completion
     - bat
+    - curl
     - fzf
     - glow
+    - htop
     - lolcat
     - tmux
+    - ttf-jetbrains-mono-nerd
+    - wget
+    - zsh
+    - zsh-completions
   aur:
+    # - oh-my-zsh-git
+    - rxvt-unicode-truecolor-wide-glyphs
     - tmux-plugin-manager
     - tmuxinator
     - undistract-me

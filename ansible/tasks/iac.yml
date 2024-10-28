@@ -10,18 +10,3 @@
   vars:
     topic: iac tools
     packages: "{{ iac.packages }}"
-# - name: Install IaC tools from official repository
-#   community.general.pacman:
-#     name:
-#       - ansible
-#       - ansible-core
-#       - opentofu
-# - name: Install IaC tools from AUR
-#   kewlfft.aur.aur:
-#     name:
-#       - tmux-plugin-manager
-#       - tmuxinator
-#       - undistract-me
-#     use: "{{ aur_helper }}"
-#   become: true
-#   become_user: "{{ unpriviledged_user }}"

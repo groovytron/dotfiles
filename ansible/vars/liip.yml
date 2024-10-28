@@ -6,3 +6,4 @@ packages:
     - postman-bin
     - python-taxi
     - python-taxi-zebra
+    - slack-desktop

@@ -1,0 +1,7 @@
+---
+packages:
+  official:
+    - linux-headers
+  aur:
+    - tuxedo-control-center-bin
+    - tuxedo-drivers-dkms

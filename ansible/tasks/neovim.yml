@@ -10,27 +10,3 @@
   vars:
     topic: Neovim, LSPs and linters
     packages: "{{ neovim.packages }}"
-# - name: Install neovim, LSPs and linters from official repository
-#   community.general.pacman:
-#     name:
-#       - ansible-language-server
-#       - jedi-language-server
-#       - gopls
-#       - neovim
-#       - python-lsp-server
-#       - shellcheck
-#       - tflint
-#       - typescript
-#       - typescript-language-server
-#       - vue-language-server
-# - name: Install LSPs and linters from AUR
-#   kewlfft.aur.aur:
-#     name:
-#       - dockerfile-language-server
-#       - emmet-language-server
-#       - phpactor
-#       - terraform-ls
-#       - vscode-langservers-extracted
-#     use: "{{ aur_helper }}"
-#   become: true
-#   become_user: "{{ unpriviledged_user }}"

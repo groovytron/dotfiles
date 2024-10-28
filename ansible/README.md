@@ -16,7 +16,7 @@ If you're ready to run the playbook on your machine:
 
 1. Change the `playbook.yml`:
     - `hosts` value to `localhost` (or the machine you are targetting).
-    - `unpriviledged_user` value to the user that is in the `wheel` group and
+    - `unprivileged_user` value to the user that is in the `wheel` group and
       will be running `yay`
       (user must be able to sudo and use pacman without being asked for
       a password).

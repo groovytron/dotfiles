@@ -1,0 +1,16 @@
+---
+packages:
+  official:
+    - adobe-source-han-sans-otc-fonts
+    - cups
+    - flameshot
+    - gnome-shell-extension-appindicator
+    - hplip
+    - python-pyqt5
+    - sane
+    - simple-scan
+  aur:
+    - spotify
+    # - whitesur-gtk-theme
+    # - whitesur-cursor-theme-git
+    # - whitesur-icon-theme
