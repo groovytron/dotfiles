@@ -39,3 +39,6 @@
 - name: Install Python toolchain
   ansible.builtin.import_tasks:
     file: tasks/python.yml
+- name: Install backup tools
+  ansible.builtin.import_tasks:
+    file: tasks/backup.yml

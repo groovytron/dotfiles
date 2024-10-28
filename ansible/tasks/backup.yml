@@ -1,0 +1,16 @@
+# vi: ft=yaml.ansible
+---
+- name: Install problematic dependencies
+  community.general.pacman:
+    name:
+      - cronie
+- name: Import variables
+  ansible.builtin.include_vars:
+    file: vars/backup.yml
+    name: backup
+- name: Install backup tools
+  ansible.builtin.import_tasks:
+    file: tasks/install_packages.yaml
+  vars:
+    topic: backup tools
+    packages: "{{ backup.packages }}"

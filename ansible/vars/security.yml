@@ -3,3 +3,4 @@ packages:
   official:
     - gopass
     - gopass-jsonapi
+    - veracrypt
