@@ -285,6 +285,15 @@ require'lspconfig'.pylsp.setup{
   capabilities = capabilities,
 }
 
+-- Ansible
+require('lspconfig').ansiblels.setup({})
+
+vim.filetype.add({
+  pattern = {
+    [".*playbook.*.ya?ml"] = "yaml.ansible",
+  },
+})
+
 -- PHP
 require'lspconfig'.phpactor.setup{
   capabilities = capabilities,
@@ -318,7 +327,7 @@ vim.filetype.add({
 
 -- Languages specific formatting
 vim.api.nvim_command('autocmd Filetype go,Makefile setlocal tabstop=4')
-vim.api.nvim_command('autocmd Filetype c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab')
+vim.api.nvim_command('autocmd Filetype yaml.ansible,c,cpp,css,hcl,html,htmldjango.twig,html.twig,javascript,json,php,pug,scss,tf,twig,ruby,yaml,vim,xml,puml,mmd set ts=2 sts=2 sw=2 expandtab')
 
 -- Set up nvim-cmp.
 local cmp = require('cmp')
