@@ -7,6 +7,7 @@ packages:
     - fzf
     - glow
     - htop
+    - less
     - lolcat
     - tmux
     - ttf-jetbrains-mono-nerd

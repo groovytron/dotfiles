@@ -2,11 +2,11 @@
 ---
 - name: Import variables
   ansible.builtin.include_vars:
-    file: vars/desktop.yml
-    name: desktop
-- name: Install desktop utilities
+    file: vars/backup.yml
+    name: backup
+- name: Install backup utilities
   ansible.builtin.import_tasks:
     file: tasks/install_packages.yaml
   vars:
-    topic: desktop utilities
-    packages: "{{ desktop.packages }}"
+    topic: backup utilities
+    packages: "{{ backup.packages }}"
