@@ -52,11 +52,6 @@ POETRY_INSTALL=$(POETRY_DIR)/$(POETRY_FILE)
 
 
 NEOVIM_CONFIG=config/nvim
-# NEOVIM_FILE=init.lua
-# NEOVIM_PLUGINS_FILE=plugins.lua
-# NEOVIM_CONFIG=config/nvim/$(NEOVIM_FILE)
-# NEOVIM_LUA_PLUGINS=config/nvim/lua
-# NEOVIM_PLUGINS_CONFIG=$(NEOVIM_LUA_PLUGINS)/$(NEOVIM_PLUGINS_FILE)
 NEOVIM_DIR=$(HOME)/.config/nvim
 NEOVIM_INSTALL=$(NEOVIM_DIR)
 
@@ -189,9 +184,9 @@ $(POETRY_INSTALL): $(POETRY_CONFIG)
 		ln -sf $(shell pwd)/$< $@ && \
 		echo 'Poetry configuration installed.'
 
+.PHONY:$(NEOVIM_INSTALL)
 $(NEOVIM_INSTALL):
 	@echo 'Installing Neovim configuration...' && \
-	mkdir -p $(NEOVIM_DIR) && \
 	([ -e '~/.local/share/nvim/site/pack/packer/start/packer.nvim' ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo 0) && \
 	ln -sf $(shell pwd)/$(NEOVIM_CONFIG) $(NEOVIM_DIR) && \
 	echo 'Neovim configuration installed.'
