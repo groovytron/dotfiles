@@ -64,6 +64,11 @@ GIT_FLAGS=--quiet
 
 BARE_INSTALL=$(HOME)/.config/autostart/bare.desktop
 
+KEYBOARD_SHORTCUTS_DIR=config/xfce4/xfconf/xfce-perchannel-xml
+KEYBOARD_SHORTCUTS_FILE=xfce4-keyboard-shortcuts.xml
+KEYBOARD_SHORTCUTS_SRC=$(KEYBOARD_SHORTCUTS_DIR)/$(KEYBOARD_SHORTCUTS_FILE)
+KEYBOARD_SHORTCUTS_INSTALL=$(HOME)/.$(KEYBOARD_SHORTCUTS_DIR)/xfce4-keyboard-shortcuts.xml
+
 help: ##- Show this help
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/: /; s/#\{2\}- *//' $(MAKEFILE_LIST)
 
@@ -102,9 +107,6 @@ install_poetry: $(POETRY_INSTALL)
 .PHONY: install_neovim
 install_neovim: ##- Install Neovim configurartion
 install_neovim: $(NEOVIM_INSTALL)
-
-$(NEOVIM_DIR):
-	mkdir -p $@
 
 $(BANNER_SCRIPT): $(GROOVY_BANNER)
 	@echo 'Installing banner script...' && \
@@ -189,6 +191,7 @@ $(POETRY_INSTALL): $(POETRY_CONFIG)
 
 $(NEOVIM_INSTALL):
 	@echo 'Installing Neovim configuration...' && \
+	mkdir -p $(NEOVIM_DIR) && \
 	([ -e '~/.local/share/nvim/site/pack/packer/start/packer.nvim' ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo 0) && \
 	ln -sf $(shell pwd)/$(NEOVIM_CONFIG) $(NEOVIM_DIR) && \
 	echo 'Neovim configuration installed.'
@@ -208,3 +211,10 @@ install_bare: $(BARE_INSTALL)
 $(BARE_INSTALL):
 	mkdir -p $(HOME)/.config/autostart
 	ln -sf $(shell pwd)/config/autostart/bare.desktop $@
+
+.PHONY: install_keyboard_shortcuts
+install_keyboard_shortcuts: $(KEYBOARD_SHORTCUTS_INSTALL)
+
+$(KEYBOARD_SHORTCUTS_INSTALL): $(KEYBOARD_SHORTCUTS_SRC)
+	mkdir -p $(dir $@) && \
+	ln -sf $(shell pwd)/$< $@
