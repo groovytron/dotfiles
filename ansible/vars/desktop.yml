@@ -9,7 +9,7 @@ packages:
     - sane
     - simple-scan
   aur:
-    - spotify
+    # - spotify
     - ulauncher
     # - whitesur-gtk-theme
     # - whitesur-cursor-theme-git

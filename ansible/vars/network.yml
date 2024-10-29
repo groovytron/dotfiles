@@ -7,5 +7,5 @@ packages:
     - networkmanager-openvpn
     - openvpn
     - traceroute
-  aur:
-    - proton-vpn-gtk-app
+#   aur:
+#     - proton-vpn-gtk-app
