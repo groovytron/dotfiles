@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-sudo pacman -R jack
+sudo pacman -S jack2
