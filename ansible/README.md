@@ -20,5 +20,7 @@ If you're ready to run the playbook on your machine:
       will be running `yay`
       (user must be able to sudo and use pacman without being asked for
       a password).
-2. Run the playbook with `ansible-playbook playbook.yml`
-3. Enjoy !
+2. Run `./remove_post_install_problematic_packages.sh` to remove problematic packages
+3. Run the playbook with `ansible-playbook --become playbook.yml --connection local -i localhost --extra-vars="unprivileged_user=$(whoami)"`
+4. Run `./post_playbook_install.sh` to install the packages that can't be installed with the playbook
+5. Enjoy !
