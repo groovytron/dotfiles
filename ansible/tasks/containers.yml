@@ -15,8 +15,8 @@
   vars:
     topic: containers orchestration tools
     packages: "{{ containers.packages }}"
-- name: "Adding existing unprivileged user to group docker"
+- name: "Adding existing unprivileged user to groups docker and libvirt"
   ansible.builtin.user:
     name: '{{ unprivileged_user }}'
-    groups: docker
+    groups: docker,libvirt
     append: true
