@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Install without configuration
+  use ({ 'projekt0n/github-nvim-theme' })
+
   -- Lualine (editor status bar)
   use {
     'nvim-lualine/lualine.nvim',
