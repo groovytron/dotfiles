@@ -21,6 +21,9 @@ urxvt*scrollBar: False
 
 ! URLs highlighting
 urxvt.perl-ext: default,matcher
+! URLs click
+urxvt.url-launcher: firefox
+urxvt.matcher.button: C-1
 
 ! Home and End keybindings (https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working#Zsh)
 ! URxvt.keysym.Home: \033[1~
