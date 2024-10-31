@@ -5,9 +5,16 @@ packages:
     - cups
     - flameshot
     - hplip
+    - libreoffice-fresh
+    - hunspell
+    - hunspell-de
+    - hunspell-en_us
+    - hunspell-fr
     - python-pyqt5
     - sane
     - simple-scan
+    - ttf-noto-nerd   # Used as System UI font
+    - xfce4-docklike-plugin
   aur:
     # - spotify
     - ulauncher

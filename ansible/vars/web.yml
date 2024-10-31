@@ -2,6 +2,8 @@
 packages:
   official:
     - chromium
+    - epiphany
     - firefox
   aur:
     - google-chrome
+    - microsoft-edge-stable-bin

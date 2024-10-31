@@ -12,10 +12,12 @@ packages:
     - tmux
     - ttf-jetbrains-mono-nerd
     - wget
+    - xclip
     - zsh
     - zsh-completions
   aur:
     # - oh-my-zsh-git
+    - neofetch
     - rxvt-unicode-truecolor-wide-glyphs
     - tmux-plugin-manager
     - tmuxinator

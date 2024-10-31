@@ -2,6 +2,7 @@
 packages:
   official:
     - ansible-language-server
+    - ansible-lint
     - jedi-language-server
     - gopls
     - neovim
@@ -15,5 +16,6 @@ packages:
     - dockerfile-language-server
     - emmet-language-server
     - phpactor
+    - php-codesniffer
     - terraform-ls
     - vscode-langservers-extracted

@@ -5,6 +5,7 @@ packages:
     - dog
     - net-tools
     - networkmanager-openvpn
+    - networkmanager-vpnc
     - openvpn
     - traceroute
 #   aur:
