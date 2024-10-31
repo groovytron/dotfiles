@@ -4,11 +4,14 @@ packages:
     - bash-completion
     - bat
     - curl
+    - fd
     - fzf
     - glow
     - htop
+    - imagemagick
     - less
     - lolcat
+    - ranger
     - tmux
     - ttf-jetbrains-mono-nerd
     - wget
