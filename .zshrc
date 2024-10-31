@@ -60,3 +60,6 @@ show_groovy_banner
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
+
+# Disable bell
+xset b off
