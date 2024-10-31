@@ -64,6 +64,10 @@ KEYBOARD_SHORTCUTS_FILE=xfce4-keyboard-shortcuts.xml
 KEYBOARD_SHORTCUTS_SRC=$(KEYBOARD_SHORTCUTS_DIR)/$(KEYBOARD_SHORTCUTS_FILE)
 KEYBOARD_SHORTCUTS_INSTALL=$(HOME)/.$(KEYBOARD_SHORTCUTS_DIR)/xfce4-keyboard-shortcuts.xml
 
+REDSHIFT_INSTALL_DIR=$(HOME)/.config/reshift
+REDSHIFT_FILE=config/redshift/redshift.conf
+REDSHIFT_INSTALL_CONFIG=$(HOME)/.$(REDSHIFT_FILE)
+
 help: ##- Show this help
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/: /; s/#\{2\}- *//' $(MAKEFILE_LIST)
 
@@ -213,3 +217,13 @@ install_keyboard_shortcuts: $(KEYBOARD_SHORTCUTS_INSTALL)
 $(KEYBOARD_SHORTCUTS_INSTALL): $(KEYBOARD_SHORTCUTS_SRC)
 	mkdir -p $(dir $@) && \
 	ln -sf $(shell pwd)/$< $@
+
+.PHONY: install_redshift_config
+install_redshift_config: $(REDSHIFT_INSTALL_CONFIG)
+
+$(REDSHIFT_INSTALL_CONFIG): $(REDSHIFT_FILE)
+	@echo 'Installing Redshift configuration' && \
+	mkdir -p $(REDSHIFT_INSTALL_DIR) && \
+	ln -sf $(shell pwd)/$< $@ && \
+	echo 'Redshift configuration installed'
+

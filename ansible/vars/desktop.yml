@@ -10,7 +10,8 @@ packages:
     - hunspell-de
     - hunspell-en_us
     - hunspell-fr
-    - python-pyqt5
+    - python-pyqt
+    - redshift
     - sane
     - simple-scan
     - ttf-noto-nerd   # Used as System UI font
