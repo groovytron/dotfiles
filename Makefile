@@ -205,6 +205,7 @@ install_terminal_font:
 	python font-patcher --mono Input_Fonts/InputMono/InputMono/InputMono-Regular.ttf
 
 .PHONY: install_bare
+install_bare:  ##- Install backup reminder desktop autostart
 install_bare: $(BARE_INSTALL)
 
 $(BARE_INSTALL):
@@ -212,6 +213,7 @@ $(BARE_INSTALL):
 	ln -sf $(shell pwd)/config/autostart/bare.desktop $@
 
 .PHONY: install_keyboard_shortcuts
+install_keyboard_shortcuts:  ##- Install XFCE4 keyboard shortcuts
 install_keyboard_shortcuts: $(KEYBOARD_SHORTCUTS_INSTALL)
 
 $(KEYBOARD_SHORTCUTS_INSTALL): $(KEYBOARD_SHORTCUTS_SRC)
@@ -219,6 +221,7 @@ $(KEYBOARD_SHORTCUTS_INSTALL): $(KEYBOARD_SHORTCUTS_SRC)
 	ln -sf $(shell pwd)/$< $@
 
 .PHONY: install_redshift_config
+install_redshift_config:  ##- Install Redshift configuration
 install_redshift_config: $(REDSHIFT_INSTALL_CONFIG)
 
 $(REDSHIFT_INSTALL_CONFIG): $(REDSHIFT_FILE)
