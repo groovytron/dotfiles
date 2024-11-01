@@ -4,6 +4,12 @@
   ansible.builtin.include_vars:
     file: vars/neovim.yml
     name: neovim
+- name: Import gpg key for PHP Codesniffer
+  ansible.builtin.command:
+    gpg --keyserver keys.openpgp.org
+      --recv-keys 689DAD778FF08760E046228BA978220305CD5C32
+  become: true
+  become_user: "{{ unprivileged_user }}"
 - name: Install neovim tools
   ansible.builtin.import_tasks:
     file: tasks/install_packages.yaml
