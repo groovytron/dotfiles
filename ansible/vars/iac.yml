@@ -3,4 +3,7 @@ packages:
   official:
     - ansible
     - ansible-core
+    - molecule
+    - molecule-plugins
     - opentofu
+    - python-docker
