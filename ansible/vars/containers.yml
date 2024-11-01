@@ -12,3 +12,4 @@ packages:
     - podman
     - podman-compose
     - qemu-desktop
+    - slirp4netns

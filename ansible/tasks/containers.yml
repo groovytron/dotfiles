@@ -20,3 +20,13 @@
     name: '{{ unprivileged_user }}'
     groups: docker,libvirt
     append: true
+- name:
+    Ensure slirp4netns is set in section "[network]"
+    (https://wiki.archlinux.org/title/Podman#Networking)
+  community.general.ini_file:
+    path: /etc/containers/containers.conf
+    section: network
+    option: default_rootless_network_cmd
+    value: '"slirp4netns"'
+    state: present
+    mode: '0644'
