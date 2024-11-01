@@ -50,6 +50,9 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
+-- Indentation
+vim.opt.smartindent = false -- Disable when treesitter's indent is enabled
+
 -- Treesitter config
 require('nvim-treesitter.configs').setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
