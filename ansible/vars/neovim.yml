@@ -15,6 +15,7 @@ packages:
   aur:
     - dockerfile-language-server
     - emmet-language-server
+    - hadolint-bin
     - phpactor
     - php-codesniffer
     - terraform-ls
