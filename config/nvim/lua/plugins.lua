@@ -82,6 +82,6 @@ return require('packer').startup(function(use)
   -- PHP Code Sniffer
   use 'praem90/nvim-phpcsf'
 
-  -- Python
+  -- Syntax checker
   use 'dense-analysis/ale'
 end)
